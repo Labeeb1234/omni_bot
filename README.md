@@ -8,5 +8,13 @@
   <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model">
 </div>
 
+# An RL developer module specifically for 4wheeled-OmniBot using python (just for fun 😐, got sidetracked)  
 
+- Here is working demo of a sample multi-bot environment 
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a90cd675-712b-48ba-964b-8ab58b674637" alt="multi-bot-feature-test-demo">
+</div>
+
+- The module is still subject to changes and is unpolished 
 
