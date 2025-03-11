@@ -2,9 +2,11 @@
 
 ## CAD Model (for simulation purposes hardware design not finalized yet)
 
+- Designed on Autodesk Fusion-360
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model">
 </div>
 
-- Designed on Autodesk Fusion-360
+
 
