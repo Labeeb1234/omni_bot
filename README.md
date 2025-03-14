@@ -3,7 +3,6 @@
 ## CAD Model (for simulation purposes hardware design not finalized yet)
 
 - Designed on Autodesk Fusion-360
-
 <div align="center">
   <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model" height="320">
 </div>
@@ -12,6 +11,17 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/2b375081-0e96-4112-92a6-ad9d69afaf21" alt="OmniBot IsaacSim">
 </div>
+
+
+## Demo Videos/Gifs
+
+- Teleop Test For testing the kinematic and dynamic motion of the system 
+<div align="center">
+  <img src=https://github.com/user-attachments/assets/686a5ced-1ff4-4a23-87a5-9a72a93bda99" alt="teleop test">
+</div>
+
+
+
 
 ## An RL developer module specifically for 4wheeled-OmniBot using python (just for fun 😐, got sidetracked)  
 
