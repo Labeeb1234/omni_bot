@@ -13,7 +13,7 @@
   <img src="https://github.com/user-attachments/assets/2b375081-0e96-4112-92a6-ad9d69afaf21" alt="OmniBot IsaacSim">
 </div>
 
-# An RL developer module specifically for 4wheeled-OmniBot using python (just for fun 😐, got sidetracked)  
+## An RL developer module specifically for 4wheeled-OmniBot using python (just for fun 😐, got sidetracked)  
 
 - Here is working demo of a sample multi-bot environment 
 
