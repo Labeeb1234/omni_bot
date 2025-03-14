@@ -7,7 +7,7 @@
   <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model" height="320">
 </div>
 
-- IsaacSim View
+- NVIDIA IsaacSim View
 <div align="center">
   <img src="https://github.com/user-attachments/assets/2b375081-0e96-4112-92a6-ad9d69afaf21" alt="OmniBot IsaacSim">
 </div>
