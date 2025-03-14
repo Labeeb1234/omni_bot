@@ -5,7 +5,7 @@
 - Designed on Autodesk Fusion-360
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model">
+  <img src="https://github.com/user-attachments/assets/9665e8e7-e29e-4002-96fb-ba597ee87805" alt="CAD-Model" height="640">
 </div>
 
 - IsaacSim View
