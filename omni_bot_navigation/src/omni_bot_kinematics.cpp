@@ -38,5 +38,12 @@ BodyVel FOmniKinematics::getVelocities(Omega omega){
     return avg_body_vel_; // zeta (local/body frame velocities)
 }
 
+void FOmniKinematics::convert_to_rads(Omega& omega){
+    omega.rpm1 = omega.rpm1*2*M_PI;
+    omega.rpm2 = omega.rpm2*2*M_PI;
+    omega.rpm3 = omega.rpm3*2*M_PI;
+    omega.rpm4 = omega.rpm4*2*M_PI;
+}
+
 
 

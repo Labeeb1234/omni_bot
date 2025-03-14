@@ -26,6 +26,7 @@ public:
 
     Omega getRPM(double u, double v, double r);
     BodyVel getVelocities(Omega omega);
+    void convert_to_rads(Omega& omega);
 };
 
 
