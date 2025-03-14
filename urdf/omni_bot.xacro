@@ -1,0 +1,3547 @@
+<?xml version="1.0" ?>
+<robot name="omni_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- <xacro:include filename="$(find omni_bot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find omni_bot_description)/urdf/omni_bot.trans" />
+<xacro:include filename="$(find omni_bot_description)/urdf/omni_bot.gazebo" /> -->
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.4040770601134208e-16 -1.296473600058529e-15 -0.005926322158201967" rpy="0 0 0"/>
+    <mass value="0.7174564561165935"/>
+    <inertia ixx="0.006789" iyy="0.006789" izz="0.013341" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin xyz="0.0009341218817601158 0.00025695498339198107 0.019086922498325835" rpy="0 0 0"/>
+    <mass value="0.17286241622018475"/>
+    <inertia ixx="8.1e-05" iyy="8.1e-05" izz="0.000114" ixy="0.0" iyz="-1e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 -0.0198" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 -0.0198" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m1_clamp_1">
+  <inertial>
+    <origin xyz="0.013349024313776964 -1.542154949621975e-12 -0.013141107875050486" rpy="0 0 0"/>
+    <mass value="0.03629250280108348"/>
+    <inertia ixx="1.9e-05" iyy="2.2e-05" izz="2e-05" ixy="-0.0" iyz="0.0" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.123 0.0 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m1_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.123 0.0 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m1_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m2_clamp_1">
+  <inertial>
+    <origin xyz="1.5876785857360906e-12 0.013349024313777103 -0.013141107875050528" rpy="0 0 0"/>
+    <mass value="0.0362925028010834"/>
+    <inertia ixx="2.2e-05" iyy="1.9e-05" izz="2e-05" ixy="-0.0" iyz="6e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.123 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m2_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.123 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m2_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m3_clamp_1">
+  <inertial>
+    <origin xyz="-0.013349024313776992 1.5876566998171808e-12 -0.013141107875050531" rpy="0 0 0"/>
+    <mass value="0.0362925028010834"/>
+    <inertia ixx="1.9e-05" iyy="2.2e-05" izz="2e-05" ixy="0.0" iyz="-0.0" ixz="-6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.123 -0.0 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m3_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.123 -0.0 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m3_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m4_clamp_1">
+  <inertial>
+    <origin xyz="-1.58768399488219e-12 -0.013349024313777103 -0.013141107875050503" rpy="0 0 0"/>
+    <mass value="0.036292502801083544"/>
+    <inertia ixx="2.2e-05" iyy="1.9e-05" izz="2e-05" ixy="-0.0" iyz="-6e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.123 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m4_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.123 0.0029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/m4_clamp_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin xyz="-2.328388234000058e-18 -4.533410683886054e-19 0.000499999999999993" rpy="0 0 0"/>
+    <mass value="0.00031800000000000025"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 0.001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 0.001" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pg_dc_motor1_1">
+  <inertial>
+    <origin xyz="-0.15 0.0 0.0329" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.15 0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.15 0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pg_dc_motor2_1">
+  <inertial>
+    <origin xyz="0.0 -0.15 0.0329" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.15 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.15 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pg_dc_motor3_1">
+  <inertial>
+    <origin xyz="0.15 0.0 0.0329" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.15 -0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.15 -0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pg_dc_motor4_1">
+  <inertial>
+    <origin xyz="0.0 0.15 0.0329" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.15 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.15 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/pg_dc_motor4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel1_1">
+  <inertial>
+    <origin xyz="0.026054129121449332 2.853140583431324e-07 -1.5588149612222324e-06" rpy="0 0 0"/>
+    <mass value="0.12264509129940639"/>
+    <inertia ixx="0.000108" iyy="6.1e-05" izz="6.1e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.153 0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.153 0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel2_1">
+  <inertial>
+    <origin xyz="-2.8531405836570066e-07 0.026054129121449582 -1.5588149612222324e-06" rpy="0 0 0"/>
+    <mass value="0.12264509129940644"/>
+    <inertia ixx="6.1e-05" iyy="0.000108" izz="6.1e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.153 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.153 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel3_1">
+  <inertial>
+    <origin xyz="-0.026054129121449082 -2.8531405834395166e-07 -1.5588149611944768e-06" rpy="0 0 0"/>
+    <mass value="0.12264509129940657"/>
+    <inertia ixx="0.000108" iyy="6.1e-05" izz="6.1e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.153 -0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.153 -0.0 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel4_1">
+  <inertial>
+    <origin xyz="2.853140583400952e-07 -0.026054129121449138 -1.5588149611736601e-06" rpy="0 0 0"/>
+    <mass value="0.12264509129940657"/>
+    <inertia ixx="6.1e-05" iyy="0.000108" izz="6.1e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.153 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.153 0.0329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller18_1">
+  <inertial>
+    <origin xyz="-6.302213537145995e-08 7.124236318025495e-08 2.9050617149015134e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606851448612"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 1e-06 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 1e-06 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller19_1">
+  <inertial>
+    <origin xyz="-6.30221352049265e-08 -8.813082132477779e-08 2.0012756079147015e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347702"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.018889 -0.006335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.018889 -0.006335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller10_1">
+  <inertial>
+    <origin xyz="-6.302213551023783e-08 -1.4489675660006585e-07 4.0752271320953354e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634773"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.034047 0.005753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.034047 0.005753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller111_1">
+  <inertial>
+    <origin xyz="-6.30221354269711e-08 3.807553438095468e-07 5.3901858608484954e-08" rpy="0 0 0"/>
+    <mass value="0.001627760713634776"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.042456 0.02322" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller111_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.042456 0.02322" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller111_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller112_1">
+  <inertial>
+    <origin xyz="-6.302213548248226e-08 -3.9232565599012226e-09 -2.2772764413786506e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347709"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.042451 0.0426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller112_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.042451 0.0426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller112_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller113_1">
+  <inertial>
+    <origin xyz="-6.30221354269711e-08 -2.618692952691126e-07 -4.03505688084671e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347789"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.034038 0.060058" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller113_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.034038 0.060058" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller113_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller114_1">
+  <inertial>
+    <origin xyz="-6.302213537145995e-08 1.7539976673863755e-07 4.756065304228896e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347741"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 0.018884 0.072138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller114_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 0.018884 0.072138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller114_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller11_1">
+  <inertial>
+    <origin xyz="-6.302213534370438e-08 -7.124236191241477e-08 -2.9050617038339777e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606527279873"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -1e-06 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -1e-06 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller12_1">
+  <inertial>
+    <origin xyz="-6.302213545472668e-08 8.813082247663417e-08 -2.0012755966303253e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347674"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.018889 0.072135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.018889 0.072135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller13_1">
+  <inertial>
+    <origin xyz="-6.302213534370438e-08 1.4489675783518896e-07 -4.0752271208283064e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.034047 0.060047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.034047 0.060047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller14_1">
+  <inertial>
+    <origin xyz="-6.302213545472668e-08 -3.807553426368737e-07 -5.3901857366422945e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347798"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.042456 0.04258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.042456 0.04258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller15_1">
+  <inertial>
+    <origin xyz="-6.302213534370438e-08 3.923257760329868e-09 2.2772764526543532e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634764"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.042451 0.0232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.042451 0.0232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller16_1">
+  <inertial>
+    <origin xyz="-6.302213556574898e-08 2.618692964626024e-07 4.0350568915673013e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347808"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.034038 0.005742" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.034038 0.005742" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller17_1">
+  <inertial>
+    <origin xyz="-6.302213537145995e-08 -1.7539976553127001e-07 -4.756065293074624e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634766"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.187341 -0.018884 -0.006338" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.187341 -0.018884 -0.006338" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller125_1">
+  <inertial>
+    <origin xyz="1.9512739876659246e-07 -3.517938687268296e-07 -2.8499519411258334e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347663"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.009965 -0.00949" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller125_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.009965 -0.00949" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller125_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller123_1">
+  <inertial>
+    <origin xyz="1.9512739876659246e-07 -1.7924475231162473e-07 1.4315636518054398e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347652"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.009415 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller123_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.009415 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller123_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller121_1">
+  <inertial>
+    <origin xyz="1.9512739882210361e-07 4.39549996771732e-07 -2.2672508526448872e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347626"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.026935 -0.001316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller121_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.026935 -0.001316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller121_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller120_1">
+  <inertial>
+    <origin xyz="1.9512739882210361e-07 3.473352260877083e-07 3.729403854745711e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347659"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.039117 0.013767" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller120_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.039117 0.013767" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller120_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller118_1">
+  <inertial>
+    <origin xyz="1.951273987388369e-07 4.6786021549310997e-07 2.3579654654520832e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347622"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.043545 0.032633" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller118_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.043545 0.032633" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller118_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller117_1">
+  <inertial>
+    <origin xyz="1.951273992939484e-07 -4.7025923614191223e-07 1.20670077777274e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347685"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.039354 0.051539" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller117_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.039354 0.051539" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller117_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller127_1">
+  <inertial>
+    <origin xyz="1.9512739882210361e-07 -4.5859735415404446e-08 -3.1471591810383615e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.02737 0.066768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller127_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.02737 0.066768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller127_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller122_1">
+  <inertial>
+    <origin xyz="1.9512739862781459e-07 3.5179386986654293e-07 2.8499519530433837e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347693"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 0.009965 0.07529" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller122_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 0.009965 0.07529" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller122_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller126_1">
+  <inertial>
+    <origin xyz="1.951273987388369e-07 1.7924475352940061e-07 -1.431563640963418e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347717"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.009415 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller126_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.009415 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller126_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller128_1">
+  <inertial>
+    <origin xyz="1.951273987110813e-07 -4.3954999567538677e-07 2.2672508637189281e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634767"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.026935 0.067116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller128_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.026935 0.067116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller128_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller116_1">
+  <inertial>
+    <origin xyz="1.9512739921068167e-07 -3.4733522474156286e-07 -3.729403843383272e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347698"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.039117 0.052033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller116_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.039117 0.052033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller116_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller124_1">
+  <inertial>
+    <origin xyz="1.951273987110813e-07 -4.678602143412536e-07 -2.357965454280464e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347555"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.043545 0.033167" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller124_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.043545 0.033167" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller124_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller119_1">
+  <inertial>
+    <origin xyz="1.951273988498592e-07 4.702592372937686e-07 -1.206700767936858e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347598"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.039354 0.014261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller119_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.039354 0.014261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller119_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller115_1">
+  <inertial>
+    <origin xyz="1.951273987110813e-07 4.585973661583309e-08 3.147159191384903e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634778"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.174182 -0.02737 -0.000968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller115_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.174182 -0.02737 -0.000968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller115_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller23_1">
+  <inertial>
+    <origin xyz="2.88550601572346e-07 -6.302213526043765e-08 4.617343180579603e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634767"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034052 -0.187341 0.060042" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller23_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034052 -0.187341 0.060042" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller23_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller24_1">
+  <inertial>
+    <origin xyz="1.9597717895031286e-07 -6.302213526043765e-08 -1.971173445372565e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042456 -0.187341 0.042579" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042456 -0.187341 0.042579" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller25_1">
+  <inertial>
+    <origin xyz="-3.691254424342816e-07 -6.302213512165977e-08 1.0668150888723527e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634775"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042455 -0.187341 0.023218" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042455 -0.187341 0.023218" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller26_1">
+  <inertial>
+    <origin xyz="2.559619020903181e-07 -6.302213545472668e-08 2.4849397165568193e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634776"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034046 -0.187341 0.005751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller26_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034046 -0.187341 0.005751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller26_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller27_1">
+  <inertial>
+    <origin xyz="-2.2725615077268113e-08 -6.30221353159488e-08 3.1219428615197886e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347813"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018887 -0.187341 -0.006336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller27_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018887 -0.187341 -0.006336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller27_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller28_1">
+  <inertial>
+    <origin xyz="-7.407621306355115e-08 -6.302213526043765e-08 2.9054014557064467e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606851448632"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1e-06 -0.187341 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller28_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1e-06 -0.187341 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller28_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller29_1">
+  <inertial>
+    <origin xyz="2.598065867547017e-07 -6.30221352049265e-08 1.648913796085602e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347715"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018903 -0.187341 -0.006328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller29_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018903 -0.187341 -0.006328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller29_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller210_1">
+  <inertial>
+    <origin xyz="-2.8855060268256905e-07 -6.302213534370438e-08 -4.617343169971769e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347717"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034052 -0.187341 0.005758" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller210_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034052 -0.187341 0.005758" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller210_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller211_1">
+  <inertial>
+    <origin xyz="-1.959771801438026e-07 -6.302213526043765e-08 1.971173457272768e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347672"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.042456 -0.187341 0.023221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller211_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.042456 -0.187341 0.023221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller211_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller212_1">
+  <inertial>
+    <origin xyz="3.6912544120609736e-07 -6.30221353159488e-08 -1.0668150782905395e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634766"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.042455 -0.187341 0.042582" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller212_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.042455 -0.187341 0.042582" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller212_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller213_1">
+  <inertial>
+    <origin xyz="-2.559619032352356e-07 -6.302213537145995e-08 -2.484939704908151e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136348"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034046 -0.187341 0.060049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller213_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034046 -0.187341 0.060049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller213_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller214_1">
+  <inertial>
+    <origin xyz="2.272561373806159e-08 -6.302213517717092e-08 -3.121942754313878e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347696"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018887 -0.187341 0.072136" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller214_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018887 -0.187341 0.072136" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller214_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller21_1">
+  <inertial>
+    <origin xyz="7.407621181763821e-08 -6.302213517717092e-08 -2.905401444291966e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606527279873"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1e-06 -0.187341 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="1e-06 -0.187341 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller22_1">
+  <inertial>
+    <origin xyz="-2.5980658781635246e-07 -6.30221352049265e-08 -1.6489137845410173e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347648"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018903 -0.187341 0.072128" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018903 -0.187341 0.072128" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller22_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller225_1">
+  <inertial>
+    <origin xyz="3.9028102444445267e-07 1.9512739887761477e-07 1.7946405324667514e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634766"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009947 -0.174182 -0.009494" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller225_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009947 -0.174182 -0.009494" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller225_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller223_1">
+  <inertial>
+    <origin xyz="3.702330884699373e-07 1.9512739887761477e-07 3.1236125327266384e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347663"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.009414 -0.174182 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller223_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.009414 -0.174182 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller223_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller221_1">
+  <inertial>
+    <origin xyz="-2.4281202874384955e-07 1.9512739887761477e-07 2.3068846634398225e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347624"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.026929 -0.174182 -0.00132" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller221_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.026929 -0.174182 -0.00132" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller221_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller220_1">
+  <inertial>
+    <origin xyz="-4.264777576645784e-07 1.9512739840576998e-07 4.126442411829523e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634764"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.03911 -0.174182 0.013753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller220_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.03911 -0.174182 0.013753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller220_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller218_1">
+  <inertial>
+    <origin xyz="3.45411658497774e-07 1.951273983780144e-07 4.823990800845168e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347696"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.043544 -0.174182 0.032623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller218_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.043544 -0.174182 0.032623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller218_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller217_1">
+  <inertial>
+    <origin xyz="3.617945246170429e-08 1.9512739840576998e-07 -1.5084651375230074e-09" rpy="0 0 0"/>
+    <mass value="0.0016277607136347737"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.039353 -0.174182 0.051542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller217_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.039353 -0.174182 0.051542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller217_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller227_1">
+  <inertial>
+    <origin xyz="3.057991229682422e-08 1.951273982669921e-07 2.2310354709509372e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.027361 -0.174182 0.066776" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller227_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.027361 -0.174182 0.066776" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller227_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller222_1">
+  <inertial>
+    <origin xyz="-3.9028102557375766e-07 1.9512739887761477e-07 -1.7946405207747151e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347683"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.009947 -0.174182 0.075294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller222_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.009947 -0.174182 0.075294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller222_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller226_1">
+  <inertial>
+    <origin xyz="-3.702330896877132e-07 1.9512739887761477e-07 -3.1236125214162413e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347702"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009414 -0.174182 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller226_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009414 -0.174182 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller226_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller228_1">
+  <inertial>
+    <origin xyz="2.4281202765097376e-07 1.951273988498592e-07 -2.3068846520535313e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347618"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.026929 -0.174182 0.06712" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller228_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.026929 -0.174182 0.06712" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller228_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller216_1">
+  <inertial>
+    <origin xyz="4.264777563947608e-07 1.951273989608815e-07 -4.1264424015252654e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347882"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.03911 -0.174182 0.052047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller216_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.03911 -0.174182 0.052047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller216_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller224_1">
+  <inertial>
+    <origin xyz="-3.4541165978840827e-07 1.9512739876659246e-07 -4.82399078897966e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347685"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043544 -0.174182 0.033177" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller224_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043544 -0.174182 0.033177" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller224_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller219_1">
+  <inertial>
+    <origin xyz="-3.6179453738460765e-08 1.9512739890537034e-07 1.5084664090753153e-09" rpy="0 0 0"/>
+    <mass value="0.0016277607136347912"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.039353 -0.174182 0.014258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller219_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.039353 -0.174182 0.014258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller219_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller215_1">
+  <inertial>
+    <origin xyz="-3.0579913552764015e-08 1.9512739887761477e-07 -2.2310354574981567e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347856"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.027361 -0.174182 -0.000976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller215_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.027361 -0.174182 -0.000976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller215_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller33_1">
+  <inertial>
+    <origin xyz="6.30221353159488e-08 2.8855060198867966e-07 4.617343173640709e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634786"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.034052 0.060042" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller33_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.034052 0.060042" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller33_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller34_1">
+  <inertial>
+    <origin xyz="6.30221354269711e-08 1.9597717904051848e-07 -1.971173454254349e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.042456 0.042579" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller34_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.042456 0.042579" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller34_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller35_1">
+  <inertial>
+    <origin xyz="6.302213534370438e-08 -3.691254427604096e-07 1.0668150806497634e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347908"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.042455 0.023218" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller35_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.042455 0.023218" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller35_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller36_1">
+  <inertial>
+    <origin xyz="6.302213559350456e-08 2.559619015490844e-07 2.484939711031725e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347882"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.034046 0.005751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller36_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.034046 0.005751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller36_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller37_1">
+  <inertial>
+    <origin xyz="6.302213551023783e-08 -2.2725615743401928e-08 3.121942832202962e-08" rpy="0 0 0"/>
+    <mass value="0.001627760713634787"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.018887 -0.006336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller37_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.018887 -0.006336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller37_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller38_1">
+  <inertial>
+    <origin xyz="6.302213545472668e-08 -7.407621309619876e-08 2.9054014557064467e-07" rpy="0 0 0"/>
+    <mass value="0.001627760685144862"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -1e-06 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller38_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -1e-06 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller38_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller39_1">
+  <inertial>
+    <origin xyz="6.302213537145995e-08 2.59806585981015e-07 1.6489138000667924e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347915"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.018903 -0.006328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller39_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.018903 -0.006328" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller39_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller310_1">
+  <inertial>
+    <origin xyz="6.302213556574898e-08 -2.885506032862528e-07 -4.6173431622435757e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347618"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.034052 0.005758" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller310_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.034052 0.005758" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller310_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller311_1">
+  <inertial>
+    <origin xyz="6.302213545472668e-08 -1.9597718036584721e-07 1.9711734667096636e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347873"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.042456 0.023221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller311_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.042456 0.023221" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller311_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller312_1">
+  <inertial>
+    <origin xyz="6.30221354269711e-08 3.6912544142120307e-07 -1.0668150701720336e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634778"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.042455 0.042582" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller312_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.042455 0.042582" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller312_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller313_1">
+  <inertial>
+    <origin xyz="6.302213551023783e-08 -2.5596190272175745e-07 -2.484939698593758e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347594"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.034046 0.060049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller313_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.034046 0.060049" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller313_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller314_1">
+  <inertial>
+    <origin xyz="6.302213526043765e-08 2.2725614685220608e-08 -3.121942714068293e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347802"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 -0.018887 0.072136" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller314_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 -0.018887 0.072136" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller314_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller31_1">
+  <inertial>
+    <origin xyz="6.302213523268207e-08 7.407621181638915e-08 -2.905401444430744e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606527279876"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 1e-06 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller31_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 1e-06 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller31_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller32_1">
+  <inertial>
+    <origin xyz="6.302213526043765e-08 -2.5980658710511584e-07 -1.6489137891206873e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347897"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.187341 0.018903 0.072128" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller32_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.187341 0.018903 0.072128" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller32_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller325_1">
+  <inertial>
+    <origin xyz="-1.951273987388369e-07 3.9028102354933536e-07 1.794640530818764e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347856"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.009947 -0.009494" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller325_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.009947 -0.009494" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller325_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller323_1">
+  <inertial>
+    <origin xyz="-1.9512739823923653e-07 3.702330875765547e-07 3.123612533958292e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347754"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.009414 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller323_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.009414 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller323_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller321_1">
+  <inertial>
+    <origin xyz="-1.9512739923843725e-07 -2.428120294585556e-07 2.306884670456779e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347648"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.026929 -0.00132" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller321_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.026929 -0.00132" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller321_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller320_1">
+  <inertial>
+    <origin xyz="-1.9512739882210361e-07 -4.264777579005008e-07 4.126442419653126e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634775"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.03911 0.013753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller320_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.03911 0.013753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller320_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller318_1">
+  <inertial>
+    <origin xyz="-1.9512739887761477e-07 3.454116586365519e-07 4.823990809310619e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347765"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.043544 0.032623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller318_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.043544 0.032623" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller318_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller317_1">
+  <inertial>
+    <origin xyz="-1.9512739887761477e-07 3.61794528988546e-08 -1.5084644991447682e-09" rpy="0 0 0"/>
+    <mass value="0.0016277607136347804"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.039353 0.051542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller317_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.039353 0.051542" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller317_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller327_1">
+  <inertial>
+    <origin xyz="-1.9512739865557016e-07 3.057991296989693e-08 2.2310354742816063e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347691"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.027361 0.066776" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller327_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.027361 0.066776" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller327_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller322_1">
+  <inertial>
+    <origin xyz="-1.9512739865557016e-07 -3.90281024699457e-07 -1.794640518554269e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347865"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 -0.009947 0.075294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller322_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 -0.009947 0.075294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller322_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller326_1">
+  <inertial>
+    <origin xyz="-1.9512739865557016e-07 -3.702330888602501e-07 -3.123612523220354e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347813"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.009414 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller326_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.009414 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller326_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller328_1">
+  <inertial>
+    <origin xyz="-1.951273987110813e-07 2.428120282026158e-07 -2.3068846574658686e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347856"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.026929 0.06712" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller328_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.026929 0.06712" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller328_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller316_1">
+  <inertial>
+    <origin xyz="-1.9512739876659246e-07 4.2647775667925547e-07 -4.126442408949882e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347659"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.03911 0.052047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller316_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.03911 0.052047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller316_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller324_1">
+  <inertial>
+    <origin xyz="-1.9512739862781459e-07 -3.454116598647361e-07 -4.82399079744511e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347717"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.043544 0.033177" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller324_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.043544 0.033177" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller324_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller319_1">
+  <inertial>
+    <origin xyz="-1.9512739876659246e-07 -3.617945416867219e-08 1.5084656856956258e-09" rpy="0 0 0"/>
+    <mass value="0.0016277607136347685"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.039353 0.014258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller319_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.039353 0.014258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller319_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller315_1">
+  <inertial>
+    <origin xyz="-1.9512739876659246e-07 -3.057991425012285e-08 -2.2310354622502148e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347802"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.174182 0.027361 -0.000976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller315_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.174182 0.027361 -0.000976" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller315_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller43_1">
+  <inertial>
+    <origin xyz="1.448967573217108e-07 6.30221350939042e-08 -4.075227127836589e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347982"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034047 0.187341 0.060047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller43_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034047 0.187341 0.060047" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller43_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller44_1">
+  <inertial>
+    <origin xyz="-3.8075534280340717e-07 6.302213517717092e-08 -5.3901858219906895e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347763"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.042456 0.187341 0.04258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller44_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.042456 0.187341 0.04258" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller44_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller45_1">
+  <inertial>
+    <origin xyz="3.923257975435579e-09 6.302213523268207e-08 2.277276444223597e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634778"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.042451 0.187341 0.0232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller45_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.042451 0.187341 0.0232" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller45_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller46_1">
+  <inertial>
+    <origin xyz="2.618692968997527e-07 6.30221354269711e-08 4.035056886475888e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347873"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034038 0.187341 0.005742" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller46_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034038 0.187341 0.005742" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller46_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller47_1">
+  <inertial>
+    <origin xyz="-1.753997646361527e-07 6.30221352049265e-08 -4.7560652968476475e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634792"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018884 0.187341 -0.006338" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller47_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018884 0.187341 -0.006338" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller47_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller48_1">
+  <inertial>
+    <origin xyz="7.124236319076737e-08 6.30221352049265e-08 2.9050617152137637e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606851448616"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1e-06 0.187341 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller48_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="1e-06 0.187341 -0.010645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller48_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller49_1">
+  <inertial>
+    <origin xyz="-8.813082058925503e-08 6.302213512165977e-08 2.0012756118351765e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347824"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018889 0.187341 -0.006335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller49_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018889 0.187341 -0.006335" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller49_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller410_1">
+  <inertial>
+    <origin xyz="-1.4489675615597664e-07 6.302213526043765e-08 4.075227138019416e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347815"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034047 0.187341 0.005753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller410_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034047 0.187341 0.005753" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller410_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller411_1">
+  <inertial>
+    <origin xyz="3.807553440315914e-07 6.30221353159488e-08 5.390185948625503e-08" rpy="0 0 0"/>
+    <mass value="0.0016277607136347693"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042456 0.187341 0.02322" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller411_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042456 0.187341 0.02322" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller411_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller412_1">
+  <inertial>
+    <origin xyz="-3.923256740312464e-09 6.302213523268207e-08 -2.2772764338846452e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347798"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.042451 0.187341 0.0426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller412_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.042451 0.187341 0.0426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller412_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller413_1">
+  <inertial>
+    <origin xyz="-2.618692957478963e-07 6.302213534370438e-08 -4.035056874115983e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347756"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034038 0.187341 0.060058" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller413_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034038 0.187341 0.060058" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller413_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller414_1">
+  <inertial>
+    <origin xyz="1.7539976579147853e-07 6.302213517717092e-08 4.756065308669788e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347789"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.018884 0.187341 0.072138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller414_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.018884 0.187341 0.072138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller414_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller41_1">
+  <inertial>
+    <origin xyz="-7.124236182436019e-08 6.30221350939042e-08 -2.9050617036952e-07" rpy="0 0 0"/>
+    <mass value="0.0016277606527279865"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1e-06 0.187341 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller41_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1e-06 0.187341 0.076445" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller41_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller42_1">
+  <inertial>
+    <origin xyz="8.813082172723363e-08 6.302213517717092e-08 -2.0012755996834386e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347889"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.018889 0.187341 0.072135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller42_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.018889 0.187341 0.072135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller42_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller425_1">
+  <inertial>
+    <origin xyz="-3.517938678542637e-07 -1.9512739890537034e-07 -2.849951942999335e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347839"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.009965 0.174182 -0.00949" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller425_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.009965 0.174182 -0.00949" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller425_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller423_1">
+  <inertial>
+    <origin xyz="-1.792447514078338e-07 -1.9512739865557016e-07 1.4315636537136356e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347834"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009415 0.174182 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller423_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009415 0.174182 -0.009615" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller423_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller421_1">
+  <inertial>
+    <origin xyz="4.395499974968464e-07 -1.9512739898863707e-07 -2.2672508468270583e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347752"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.026935 0.174182 -0.001316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller421_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.026935 0.174182 -0.001316" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller421_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller420_1">
+  <inertial>
+    <origin xyz="3.47335226434653e-07 -1.951273988498592e-07 3.729403861788688e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634778"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.039117 0.174182 0.013767" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller420_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.039117 0.174182 0.013767" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller420_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller418_1">
+  <inertial>
+    <origin xyz="4.6786021550698775e-07 -1.9512739901639264e-07 2.3579654743338674e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634766"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.043545 0.174182 0.032633" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller418_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.043545 0.174182 0.032633" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller418_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller417_1">
+  <inertial>
+    <origin xyz="-4.7025923644722356e-07 -1.951273990719038e-07 1.2067007873484137e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347685"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.039354 0.174182 0.051539" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller417_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.039354 0.174182 0.051539" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller417_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller427_1">
+  <inertial>
+    <origin xyz="-4.585973614051886e-08 -1.9512739890537034e-07 -3.147159174515801e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347746"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02737 0.174182 0.066768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller427_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02737 0.174182 0.066768" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller427_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller422_1">
+  <inertial>
+    <origin xyz="3.5179386903907983e-07 -1.9512739835025883e-07 2.849951956374053e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347722"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.009965 0.174182 0.07529" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller422_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.009965 0.174182 0.07529" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller422_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller426_1">
+  <inertial>
+    <origin xyz="1.7924475279214314e-07 -1.951273989608815e-07 -1.4315636426287526e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634774"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.009415 0.174182 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller426_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.009415 0.174182 0.075415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller426_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller428_1">
+  <inertial>
+    <origin xyz="-4.3954999633805114e-07 -1.951273989608815e-07 2.2672508576127015e-07" rpy="0 0 0"/>
+    <mass value="0.001627760713634774"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.026935 0.174182 0.067116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller428_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.026935 0.174182 0.067116" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller428_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller416_1">
+  <inertial>
+    <origin xyz="-3.4733522519259097e-07 -1.9512739898863707e-07 -3.729403850183388e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347704"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.039117 0.174182 0.052033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller416_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.039117 0.174182 0.052033" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller416_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller424_1">
+  <inertial>
+    <origin xyz="-4.678602143065591e-07 -1.9512739887761477e-07 -2.3579654626765256e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.043545 0.174182 0.033167" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller424_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.043545 0.174182 0.033167" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller424_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller419_1">
+  <inertial>
+    <origin xyz="4.7025923768928557e-07 -1.951273989608815e-07 -1.2067007756043358e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347772"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.039354 0.174182 0.014261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller419_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.039354 0.174182 0.014261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller419_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="roller415_1">
+  <inertial>
+    <origin xyz="4.585973730278359e-08 -1.9512739890537034e-07 3.1471591867672857e-07" rpy="0 0 0"/>
+    <mass value="0.0016277607136347696"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02737 0.174182 -0.000968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller415_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02737 0.174182 -0.000968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_bot_description)/meshes/roller415_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0198" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_link_1"/>
+</joint>
+
+<joint name="clamp1_joint" type="fixed">
+  <origin xyz="0.123 0.0 -0.0029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m1_clamp_1"/>
+</joint>
+
+<joint name="clamp2_joint" type="fixed">
+  <origin xyz="0.0 0.123 -0.0029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m2_clamp_1"/>
+</joint>
+
+<joint name="clamp3_joint" type="fixed">
+  <origin xyz="-0.123 0.0 -0.0029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m3_clamp_1"/>
+</joint>
+
+<joint name="clamp4_joint" type="fixed">
+  <origin xyz="0.0 -0.123 -0.0029" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m4_clamp_1"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.0 0.0 -0.001" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link_1"/>
+</joint>
+
+<joint name="motor1_clamp_joint" type="fixed">
+  <origin xyz="0.027 0.0 -0.03" rpy="0 0 0"/>
+  <parent link="m1_clamp_1"/>
+  <child link="pg_dc_motor1_1"/>
+</joint>
+
+<joint name="motor2_clamp_joint" type="fixed">
+  <origin xyz="0.0 0.027 -0.03" rpy="0 0 0"/>
+  <parent link="m2_clamp_1"/>
+  <child link="pg_dc_motor2_1"/>
+</joint>
+
+<joint name="motor3_clamp_joint" type="fixed">
+  <origin xyz="-0.027 0.0 -0.03" rpy="0 0 0"/>
+  <parent link="m3_clamp_1"/>
+  <child link="pg_dc_motor3_1"/>
+</joint>
+
+<joint name="motor4_clamp_joint" type="fixed">
+  <origin xyz="0.0 -0.027 -0.03" rpy="0 0 0"/>
+  <parent link="m4_clamp_1"/>
+  <child link="pg_dc_motor4_1"/>
+</joint>
+
+<joint name="Revolute_1" type="continuous">
+  <origin xyz="0.03 0.0 -0.03" rpy="0 0 0"/>
+  <parent link="m1_clamp_1"/>
+  <child link="wheel1_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute_2" type="continuous">
+  <origin xyz="0.0 0.03 -0.03" rpy="0 0 0"/>
+  <parent link="m2_clamp_1"/>
+  <child link="wheel2_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute_3" type="continuous">
+  <origin xyz="-0.03 0.0 -0.03" rpy="0 0 0"/>
+  <parent link="m3_clamp_1"/>
+  <child link="wheel3_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute_4" type="continuous">
+  <origin xyz="0.0 -0.03 -0.03" rpy="0 0 0"/>
+  <parent link="m4_clamp_1"/>
+  <child link="wheel4_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute_11" type="continuous">
+  <origin xyz="0.034341 -1e-06 0.043545" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller18_1"/>
+  <axis xyz="-0.0 0.999928 0.011988"/>
+</joint>
+
+<joint name="Revolute_12" type="continuous">
+  <origin xyz="0.034341 -0.018889 0.039235" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller19_1"/>
+  <axis xyz="0.0 0.895703 0.444653"/>
+</joint>
+
+<joint name="Revolute_13" type="continuous">
+  <origin xyz="0.034341 -0.034047 0.027147" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller10_1"/>
+  <axis xyz="0.0 0.614073 0.78925"/>
+</joint>
+
+<joint name="Revolute_14" type="continuous">
+  <origin xyz="0.034341 -0.042456 0.00968" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller111_1"/>
+  <axis xyz="0.0 0.210818 0.977525"/>
+</joint>
+
+<joint name="Revolute_15" type="continuous">
+  <origin xyz="0.034341 -0.042451 -0.0097" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller112_1"/>
+  <axis xyz="0.0 -0.234192 0.97219"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="0.034341 -0.034038 -0.027158" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller113_1"/>
+  <axis xyz="0.0 -0.632817 0.774301"/>
+</joint>
+
+<joint name="Revolute_17" type="continuous">
+  <origin xyz="0.034341 -0.018884 -0.039238" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller114_1"/>
+  <axis xyz="0.0 -0.906105 0.423052"/>
+</joint>
+
+<joint name="Revolute_18" type="continuous">
+  <origin xyz="0.034341 1e-06 -0.043545" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller11_1"/>
+  <axis xyz="0.0 -0.999928 -0.011988"/>
+</joint>
+
+<joint name="Revolute_19" type="continuous">
+  <origin xyz="0.034341 0.018889 -0.039235" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller12_1"/>
+  <axis xyz="-0.0 -0.895703 -0.444653"/>
+</joint>
+
+<joint name="Revolute_110" type="continuous">
+  <origin xyz="0.034341 0.034047 -0.027147" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller13_1"/>
+  <axis xyz="-0.0 -0.614073 -0.78925"/>
+</joint>
+
+<joint name="Revolute_111" type="continuous">
+  <origin xyz="0.034341 0.042456 -0.00968" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller14_1"/>
+  <axis xyz="-0.0 -0.210818 -0.977525"/>
+</joint>
+
+<joint name="Revolute_112" type="continuous">
+  <origin xyz="0.034341 0.042451 0.0097" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller15_1"/>
+  <axis xyz="-0.0 0.234192 -0.97219"/>
+</joint>
+
+<joint name="Revolute_113" type="continuous">
+  <origin xyz="0.034341 0.034038 0.027158" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller16_1"/>
+  <axis xyz="-0.0 0.632817 -0.774301"/>
+</joint>
+
+<joint name="Revolute_114" type="continuous">
+  <origin xyz="0.034341 0.018884 0.039238" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller17_1"/>
+  <axis xyz="-0.0 0.906105 -0.423052"/>
+</joint>
+
+<joint name="Revolute_115" type="continuous">
+  <origin xyz="0.021182 0.009965 0.04239" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller125_1"/>
+  <axis xyz="0.0 -0.970712 0.240248"/>
+</joint>
+
+<joint name="Revolute_116" type="continuous">
+  <origin xyz="0.021182 -0.009415 0.042515" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller123_1"/>
+  <axis xyz="0.0 -0.97882 -0.20472"/>
+</joint>
+
+<joint name="Revolute_117" type="continuous">
+  <origin xyz="0.021182 -0.026935 0.034216" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller121_1"/>
+  <axis xyz="-0.0 -0.793062 -0.609141"/>
+</joint>
+
+<joint name="Revolute_118" type="continuous">
+  <origin xyz="0.021182 -0.039117 0.019133" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller120_1"/>
+  <axis xyz="-0.0 -0.450228 -0.892914"/>
+</joint>
+
+<joint name="Revolute_119" type="continuous">
+  <origin xyz="0.021182 -0.043545 0.000267" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller118_1"/>
+  <axis xyz="-0.0 -0.01822 -0.999834"/>
+</joint>
+
+<joint name="Revolute_120" type="continuous">
+  <origin xyz="0.021182 -0.039354 -0.018639" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller117_1"/>
+  <axis xyz="-0.0 0.417396 -0.908725"/>
+</joint>
+
+<joint name="Revolute_121" type="continuous">
+  <origin xyz="0.021182 -0.02737 -0.033868" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller127_1"/>
+  <axis xyz="-0.0 0.770341 -0.637632"/>
+</joint>
+
+<joint name="Revolute_122" type="continuous">
+  <origin xyz="0.021182 -0.009965 -0.04239" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller122_1"/>
+  <axis xyz="-0.0 0.970712 -0.240248"/>
+</joint>
+
+<joint name="Revolute_123" type="continuous">
+  <origin xyz="0.021182 0.009415 -0.042515" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller126_1"/>
+  <axis xyz="-0.0 0.97882 0.20472"/>
+</joint>
+
+<joint name="Revolute_124" type="continuous">
+  <origin xyz="0.021182 0.026935 -0.034216" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller128_1"/>
+  <axis xyz="0.0 0.793062 0.609141"/>
+</joint>
+
+<joint name="Revolute_125" type="continuous">
+  <origin xyz="0.021182 0.039117 -0.019133" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller116_1"/>
+  <axis xyz="0.0 0.450228 0.892914"/>
+</joint>
+
+<joint name="Revolute_126" type="continuous">
+  <origin xyz="0.021182 0.043545 -0.000267" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller124_1"/>
+  <axis xyz="0.0 0.01822 0.999834"/>
+</joint>
+
+<joint name="Revolute_127" type="continuous">
+  <origin xyz="0.021182 0.039354 0.018639" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller119_1"/>
+  <axis xyz="0.0 -0.417396 0.908725"/>
+</joint>
+
+<joint name="Revolute_128" type="continuous">
+  <origin xyz="0.021182 0.02737 0.033868" rpy="0 0 0"/>
+  <parent link="wheel1_1"/>
+  <child link="roller115_1"/>
+  <axis xyz="0.0 -0.770341 0.637632"/>
+</joint>
+
+<joint name="Revolute_21" type="continuous">
+  <origin xyz="-0.034052 0.034341 -0.027142" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller23_1"/>
+  <axis xyz="0.614073 0.0 -0.78925"/>
+</joint>
+
+<joint name="Revolute_22" type="continuous">
+  <origin xyz="-0.042456 0.034341 -0.009679" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller24_1"/>
+  <axis xyz="0.210818 0.0 -0.977525"/>
+</joint>
+
+<joint name="Revolute_23" type="continuous">
+  <origin xyz="-0.042455 0.034341 0.009682" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller25_1"/>
+  <axis xyz="-0.234192 0.0 -0.97219"/>
+</joint>
+
+<joint name="Revolute_24" type="continuous">
+  <origin xyz="-0.034046 0.034341 0.027149" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller26_1"/>
+  <axis xyz="-0.632817 0.0 -0.774301"/>
+</joint>
+
+<joint name="Revolute_25" type="continuous">
+  <origin xyz="-0.018887 0.034341 0.039236" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller27_1"/>
+  <axis xyz="-0.906105 0.0 -0.423052"/>
+</joint>
+
+<joint name="Revolute_26" type="continuous">
+  <origin xyz="1e-06 0.034341 0.043545" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller28_1"/>
+  <axis xyz="-0.999928 -0.0 0.011988"/>
+</joint>
+
+<joint name="Revolute_27" type="continuous">
+  <origin xyz="0.018903 0.034341 0.039228" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller29_1"/>
+  <axis xyz="-0.895703 -0.0 0.444653"/>
+</joint>
+
+<joint name="Revolute_28" type="continuous">
+  <origin xyz="0.034052 0.034341 0.027142" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller210_1"/>
+  <axis xyz="-0.614073 -0.0 0.78925"/>
+</joint>
+
+<joint name="Revolute_29" type="continuous">
+  <origin xyz="0.042456 0.034341 0.009679" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller211_1"/>
+  <axis xyz="-0.210818 -0.0 0.977525"/>
+</joint>
+
+<joint name="Revolute_210" type="continuous">
+  <origin xyz="0.042455 0.034341 -0.009682" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller212_1"/>
+  <axis xyz="0.234192 -0.0 0.97219"/>
+</joint>
+
+<joint name="Revolute_211" type="continuous">
+  <origin xyz="0.034046 0.034341 -0.027149" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller213_1"/>
+  <axis xyz="0.632817 -0.0 0.774301"/>
+</joint>
+
+<joint name="Revolute_212" type="continuous">
+  <origin xyz="0.018887 0.034341 -0.039236" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller214_1"/>
+  <axis xyz="0.906105 -0.0 0.423052"/>
+</joint>
+
+<joint name="Revolute_213" type="continuous">
+  <origin xyz="-1e-06 0.034341 -0.043545" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller21_1"/>
+  <axis xyz="0.999928 0.0 -0.011988"/>
+</joint>
+
+<joint name="Revolute_214" type="continuous">
+  <origin xyz="-0.018903 0.034341 -0.039228" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller22_1"/>
+  <axis xyz="0.895703 0.0 -0.444653"/>
+</joint>
+
+<joint name="Revolute_215" type="continuous">
+  <origin xyz="-0.009947 0.021182 0.042394" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller225_1"/>
+  <axis xyz="0.970712 -0.0 0.240248"/>
+</joint>
+
+<joint name="Revolute_216" type="continuous">
+  <origin xyz="0.009414 0.021182 0.042515" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller223_1"/>
+  <axis xyz="0.97882 0.0 -0.20472"/>
+</joint>
+
+<joint name="Revolute_217" type="continuous">
+  <origin xyz="0.026929 0.021182 0.03422" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller221_1"/>
+  <axis xyz="0.793062 0.0 -0.609141"/>
+</joint>
+
+<joint name="Revolute_218" type="continuous">
+  <origin xyz="0.03911 0.021182 0.019147" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller220_1"/>
+  <axis xyz="0.450228 0.0 -0.892914"/>
+</joint>
+
+<joint name="Revolute_219" type="continuous">
+  <origin xyz="0.043544 0.021182 0.000277" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller218_1"/>
+  <axis xyz="0.01822 0.0 -0.999834"/>
+</joint>
+
+<joint name="Revolute_220" type="continuous">
+  <origin xyz="0.039353 0.021182 -0.018642" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller217_1"/>
+  <axis xyz="-0.417396 0.0 -0.908725"/>
+</joint>
+
+<joint name="Revolute_221" type="continuous">
+  <origin xyz="0.027361 0.021182 -0.033876" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller227_1"/>
+  <axis xyz="-0.770341 0.0 -0.637632"/>
+</joint>
+
+<joint name="Revolute_222" type="continuous">
+  <origin xyz="0.009947 0.021182 -0.042394" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller222_1"/>
+  <axis xyz="-0.970712 0.0 -0.240248"/>
+</joint>
+
+<joint name="Revolute_223" type="continuous">
+  <origin xyz="-0.009414 0.021182 -0.042515" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller226_1"/>
+  <axis xyz="-0.97882 -0.0 0.20472"/>
+</joint>
+
+<joint name="Revolute_224" type="continuous">
+  <origin xyz="-0.026929 0.021182 -0.03422" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller228_1"/>
+  <axis xyz="-0.793062 -0.0 0.609141"/>
+</joint>
+
+<joint name="Revolute_225" type="continuous">
+  <origin xyz="-0.03911 0.021182 -0.019147" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller216_1"/>
+  <axis xyz="-0.450228 -0.0 0.892914"/>
+</joint>
+
+<joint name="Revolute_226" type="continuous">
+  <origin xyz="-0.043544 0.021182 -0.000277" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller224_1"/>
+  <axis xyz="-0.01822 -0.0 0.999834"/>
+</joint>
+
+<joint name="Revolute_227" type="continuous">
+  <origin xyz="-0.039353 0.021182 0.018642" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller219_1"/>
+  <axis xyz="0.417396 -0.0 0.908725"/>
+</joint>
+
+<joint name="Revolute_228" type="continuous">
+  <origin xyz="-0.027361 0.021182 0.033876" rpy="0 0 0"/>
+  <parent link="wheel2_1"/>
+  <child link="roller215_1"/>
+  <axis xyz="0.770341 -0.0 0.637632"/>
+</joint>
+
+<joint name="Revolute_31" type="continuous">
+  <origin xyz="-0.034341 -0.034052 -0.027142" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller33_1"/>
+  <axis xyz="-0.0 0.614073 -0.78925"/>
+</joint>
+
+<joint name="Revolute_32" type="continuous">
+  <origin xyz="-0.034341 -0.042456 -0.009679" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller34_1"/>
+  <axis xyz="-0.0 0.210818 -0.977525"/>
+</joint>
+
+<joint name="Revolute_33" type="continuous">
+  <origin xyz="-0.034341 -0.042455 0.009682" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller35_1"/>
+  <axis xyz="-0.0 -0.234192 -0.97219"/>
+</joint>
+
+<joint name="Revolute_34" type="continuous">
+  <origin xyz="-0.034341 -0.034046 0.027149" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller36_1"/>
+  <axis xyz="-0.0 -0.632817 -0.774301"/>
+</joint>
+
+<joint name="Revolute_35" type="continuous">
+  <origin xyz="-0.034341 -0.018887 0.039236" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller37_1"/>
+  <axis xyz="-0.0 -0.906105 -0.423052"/>
+</joint>
+
+<joint name="Revolute_36" type="continuous">
+  <origin xyz="-0.034341 1e-06 0.043545" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller38_1"/>
+  <axis xyz="0.0 -0.999928 0.011988"/>
+</joint>
+
+<joint name="Revolute_37" type="continuous">
+  <origin xyz="-0.034341 0.018903 0.039228" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller39_1"/>
+  <axis xyz="0.0 -0.895703 0.444653"/>
+</joint>
+
+<joint name="Revolute_38" type="continuous">
+  <origin xyz="-0.034341 0.034052 0.027142" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller310_1"/>
+  <axis xyz="0.0 -0.614073 0.78925"/>
+</joint>
+
+<joint name="Revolute_39" type="continuous">
+  <origin xyz="-0.034341 0.042456 0.009679" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller311_1"/>
+  <axis xyz="0.0 -0.210818 0.977525"/>
+</joint>
+
+<joint name="Revolute_310" type="continuous">
+  <origin xyz="-0.034341 0.042455 -0.009682" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller312_1"/>
+  <axis xyz="0.0 0.234192 0.97219"/>
+</joint>
+
+<joint name="Revolute_311" type="continuous">
+  <origin xyz="-0.034341 0.034046 -0.027149" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller313_1"/>
+  <axis xyz="0.0 0.632817 0.774301"/>
+</joint>
+
+<joint name="Revolute_312" type="continuous">
+  <origin xyz="-0.034341 0.018887 -0.039236" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller314_1"/>
+  <axis xyz="0.0 0.906105 0.423052"/>
+</joint>
+
+<joint name="Revolute_313" type="continuous">
+  <origin xyz="-0.034341 -1e-06 -0.043545" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller31_1"/>
+  <axis xyz="-0.0 0.999928 -0.011988"/>
+</joint>
+
+<joint name="Revolute_314" type="continuous">
+  <origin xyz="-0.034341 -0.018903 -0.039228" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller32_1"/>
+  <axis xyz="-0.0 0.895703 -0.444653"/>
+</joint>
+
+<joint name="Revolute_315" type="continuous">
+  <origin xyz="-0.021182 -0.009947 0.042394" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller325_1"/>
+  <axis xyz="-0.0 0.970712 0.240248"/>
+</joint>
+
+<joint name="Revolute_316" type="continuous">
+  <origin xyz="-0.021182 0.009414 0.042515" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller323_1"/>
+  <axis xyz="-0.0 0.97882 -0.20472"/>
+</joint>
+
+<joint name="Revolute_317" type="continuous">
+  <origin xyz="-0.021182 0.026929 0.03422" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller321_1"/>
+  <axis xyz="-0.0 0.793062 -0.609141"/>
+</joint>
+
+<joint name="Revolute_318" type="continuous">
+  <origin xyz="-0.021182 0.03911 0.019147" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller320_1"/>
+  <axis xyz="-0.0 0.450228 -0.892914"/>
+</joint>
+
+<joint name="Revolute_319" type="continuous">
+  <origin xyz="-0.021182 0.043544 0.000277" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller318_1"/>
+  <axis xyz="-0.0 0.01822 -0.999834"/>
+</joint>
+
+<joint name="Revolute_320" type="continuous">
+  <origin xyz="-0.021182 0.039353 -0.018642" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller317_1"/>
+  <axis xyz="-0.0 -0.417396 -0.908725"/>
+</joint>
+
+<joint name="Revolute_321" type="continuous">
+  <origin xyz="-0.021182 0.027361 -0.033876" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller327_1"/>
+  <axis xyz="-0.0 -0.770341 -0.637632"/>
+</joint>
+
+<joint name="Revolute_322" type="continuous">
+  <origin xyz="-0.021182 0.009947 -0.042394" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller322_1"/>
+  <axis xyz="0.0 -0.970712 -0.240248"/>
+</joint>
+
+<joint name="Revolute_323" type="continuous">
+  <origin xyz="-0.021182 -0.009414 -0.042515" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller326_1"/>
+  <axis xyz="0.0 -0.97882 0.20472"/>
+</joint>
+
+<joint name="Revolute_324" type="continuous">
+  <origin xyz="-0.021182 -0.026929 -0.03422" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller328_1"/>
+  <axis xyz="0.0 -0.793062 0.609141"/>
+</joint>
+
+<joint name="Revolute_325" type="continuous">
+  <origin xyz="-0.021182 -0.03911 -0.019147" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller316_1"/>
+  <axis xyz="0.0 -0.450228 0.892914"/>
+</joint>
+
+<joint name="Revolute_326" type="continuous">
+  <origin xyz="-0.021182 -0.043544 -0.000277" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller324_1"/>
+  <axis xyz="0.0 -0.01822 0.999834"/>
+</joint>
+
+<joint name="Revolute_327" type="continuous">
+  <origin xyz="-0.021182 -0.039353 0.018642" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller319_1"/>
+  <axis xyz="0.0 0.417396 0.908725"/>
+</joint>
+
+<joint name="Revolute_328" type="continuous">
+  <origin xyz="-0.021182 -0.027361 0.033876" rpy="0 0 0"/>
+  <parent link="wheel3_1"/>
+  <child link="roller315_1"/>
+  <axis xyz="0.0 0.770341 0.637632"/>
+</joint>
+
+<joint name="Revolute_41" type="continuous">
+  <origin xyz="0.034047 -0.034341 -0.027147" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller43_1"/>
+  <axis xyz="-0.614073 -0.0 -0.78925"/>
+</joint>
+
+<joint name="Revolute_42" type="continuous">
+  <origin xyz="0.042456 -0.034341 -0.00968" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller44_1"/>
+  <axis xyz="-0.210818 -0.0 -0.977525"/>
+</joint>
+
+<joint name="Revolute_43" type="continuous">
+  <origin xyz="0.042451 -0.034341 0.0097" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller45_1"/>
+  <axis xyz="0.234192 -0.0 -0.97219"/>
+</joint>
+
+<joint name="Revolute_44" type="continuous">
+  <origin xyz="0.034038 -0.034341 0.027158" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller46_1"/>
+  <axis xyz="0.632817 -0.0 -0.774301"/>
+</joint>
+
+<joint name="Revolute_45" type="continuous">
+  <origin xyz="0.018884 -0.034341 0.039238" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller47_1"/>
+  <axis xyz="0.906105 -0.0 -0.423052"/>
+</joint>
+
+<joint name="Revolute_46" type="continuous">
+  <origin xyz="-1e-06 -0.034341 0.043545" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller48_1"/>
+  <axis xyz="0.999928 0.0 0.011988"/>
+</joint>
+
+<joint name="Revolute_47" type="continuous">
+  <origin xyz="-0.018889 -0.034341 0.039235" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller49_1"/>
+  <axis xyz="0.895703 0.0 0.444653"/>
+</joint>
+
+<joint name="Revolute_48" type="continuous">
+  <origin xyz="-0.034047 -0.034341 0.027147" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller410_1"/>
+  <axis xyz="0.614073 0.0 0.78925"/>
+</joint>
+
+<joint name="Revolute_49" type="continuous">
+  <origin xyz="-0.042456 -0.034341 0.00968" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller411_1"/>
+  <axis xyz="0.210818 0.0 0.977525"/>
+</joint>
+
+<joint name="Revolute_410" type="continuous">
+  <origin xyz="-0.042451 -0.034341 -0.0097" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller412_1"/>
+  <axis xyz="-0.234192 0.0 0.97219"/>
+</joint>
+
+<joint name="Revolute_411" type="continuous">
+  <origin xyz="-0.034038 -0.034341 -0.027158" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller413_1"/>
+  <axis xyz="-0.632817 0.0 0.774301"/>
+</joint>
+
+<joint name="Revolute_412" type="continuous">
+  <origin xyz="-0.018884 -0.034341 -0.039238" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller414_1"/>
+  <axis xyz="-0.906105 0.0 0.423052"/>
+</joint>
+
+<joint name="Revolute_413" type="continuous">
+  <origin xyz="1e-06 -0.034341 -0.043545" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller41_1"/>
+  <axis xyz="-0.999928 -0.0 -0.011988"/>
+</joint>
+
+<joint name="Revolute_414" type="continuous">
+  <origin xyz="0.018889 -0.034341 -0.039235" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller42_1"/>
+  <axis xyz="-0.895703 -0.0 -0.444653"/>
+</joint>
+
+<joint name="Revolute_415" type="continuous">
+  <origin xyz="0.009965 -0.021182 0.04239" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller425_1"/>
+  <axis xyz="-0.970712 0.0 0.240248"/>
+</joint>
+
+<joint name="Revolute_416" type="continuous">
+  <origin xyz="-0.009415 -0.021182 0.042515" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller423_1"/>
+  <axis xyz="-0.97882 -0.0 -0.20472"/>
+</joint>
+
+<joint name="Revolute_417" type="continuous">
+  <origin xyz="-0.026935 -0.021182 0.034216" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller421_1"/>
+  <axis xyz="-0.793062 -0.0 -0.609141"/>
+</joint>
+
+<joint name="Revolute_418" type="continuous">
+  <origin xyz="-0.039117 -0.021182 0.019133" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller420_1"/>
+  <axis xyz="-0.450228 -0.0 -0.892914"/>
+</joint>
+
+<joint name="Revolute_419" type="continuous">
+  <origin xyz="-0.043545 -0.021182 0.000267" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller418_1"/>
+  <axis xyz="-0.01822 -0.0 -0.999834"/>
+</joint>
+
+<joint name="Revolute_420" type="continuous">
+  <origin xyz="-0.039354 -0.021182 -0.018639" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller417_1"/>
+  <axis xyz="0.417396 -0.0 -0.908725"/>
+</joint>
+
+<joint name="Revolute_421" type="continuous">
+  <origin xyz="-0.02737 -0.021182 -0.033868" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller427_1"/>
+  <axis xyz="0.770341 -0.0 -0.637632"/>
+</joint>
+
+<joint name="Revolute_422" type="continuous">
+  <origin xyz="-0.009965 -0.021182 -0.04239" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller422_1"/>
+  <axis xyz="0.970712 -0.0 -0.240248"/>
+</joint>
+
+<joint name="Revolute_423" type="continuous">
+  <origin xyz="0.009415 -0.021182 -0.042515" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller426_1"/>
+  <axis xyz="0.97882 0.0 0.20472"/>
+</joint>
+
+<joint name="Revolute_424" type="continuous">
+  <origin xyz="0.026935 -0.021182 -0.034216" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller428_1"/>
+  <axis xyz="0.793062 0.0 0.609141"/>
+</joint>
+
+<joint name="Revolute_425" type="continuous">
+  <origin xyz="0.039117 -0.021182 -0.019133" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller416_1"/>
+  <axis xyz="0.450228 0.0 0.892914"/>
+</joint>
+
+<joint name="Revolute_426" type="continuous">
+  <origin xyz="0.043545 -0.021182 -0.000267" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller424_1"/>
+  <axis xyz="0.01822 0.0 0.999834"/>
+</joint>
+
+<joint name="Revolute_427" type="continuous">
+  <origin xyz="0.039354 -0.021182 0.018639" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller419_1"/>
+  <axis xyz="-0.417396 0.0 0.908725"/>
+</joint>
+
+<joint name="Revolute_428" type="continuous">
+  <origin xyz="0.02737 -0.021182 0.033868" rpy="0 0 0"/>
+  <parent link="wheel4_1"/>
+  <child link="roller415_1"/>
+  <axis xyz="-0.770341 0.0 0.637632"/>
+</joint>
+
+</robot>
