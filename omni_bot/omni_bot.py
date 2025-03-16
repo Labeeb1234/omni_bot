@@ -2,8 +2,13 @@ import numpy as np
 from omni_bot.utils.utils import WrapToPi, get_transform
 
 class OmniBot:
-    def __init__(self, a, L, W, t, inital_pos=(0,0,0)):
+    def __init__(self, a, L, W, t, m, Icz, com_vec=[0.0, 0.0], inital_pos=(0,0,0)):
         self.a, self.l, self.w, self.t = a, L, W, t
+        self.m = m
+        self.Icz = Icz 
+        # centre of mass pose/centre of gravity pose
+        self.pose_com = np.array(com_vec).reshape((2,1)) # assuming 2D-motion dynamics
+
         # wheel config matrix (forward)
         self.W = np.array([
             [0, -self.a/2, 0, self.a/2],
@@ -63,7 +68,7 @@ class OmniBot:
         return wheels_glob
     
     # ---------------- Kinematics --------------- 
-    def inverse_kinematics(self, body_vel):
+    def inverse_kinematics(self, body_vel): # body_vel --> zeta
         U = np.array(body_vel).reshape((3,1)) # [u, v, r]
 
         # wheel_config_matrix
@@ -86,7 +91,7 @@ class OmniBot:
             [0,                 0,                 1]
         ])
 
-        vel_global = J @ (self.W @ omega)
+        vel_global = J @ (self.W @ omega) # ---> zeta vector (body frame velocity vector)
 
         return vel_global
     
@@ -98,8 +103,49 @@ class OmniBot:
         self.pose[2,0] += vel_global[2, 0] * dt
         self.pose[2,0] = WrapToPi(self.pose[2,0])
 
+    def dynamic_odom_update(self, vel_global, body_accel, dt):
+        # note: vel_global --> eta_dot
+        J = np.array([
+            [np.cos(self.pose[2,0]), -np.sin(self.pose[2,0]), 0],
+            [np.sin(self.pose[2,0]),  np.cos(self.pose[2,0]), 0],
+            [0,                 0,                 1]
+        ])
+        accel_global = (J @ body_accel).reshape((3,1))
+        self.pose[0,0] += dt*(vel_global[0, 0] + 0.5*accel_global[0, 0]*dt) 
+        self.pose[1,0] += dt*(vel_global[1, 0] + 0.5*accel_global[1, 0]*dt) 
+        self.pose[2,0] += dt*(vel_global[2, 0] + 0.5*accel_global[2, 0]*dt) 
+        self.pose[2,0] = WrapToPi(self.pose[2,0])
+
 
     # ---------------- Dynamics ---------------
-    
+    def forward_dynamics(self, tau, n_v):
+        tau = np.array(tau).reshape((3,1))
+        # zeta --> body_vel [u, v, r]
+        # tau ---> input force/ the control input or the net external forces acting on the system [Fxb, Fyb, Mzb]
+        # D ---> inertia matrix
+        D = np.array([
+            [self.m, 0, -self.m*self.pose_com[1,0]],
+            [0, self.m, self.m*self.pose_com[0,0]],
+            [-self.m*self.pose_com[1,0], self.m*self.pose_com[0,0], self.Icz+self.m*(self.pose_com[0,0]**2+self.pose_com[1,0]**2)]
+        ]).reshape((3,3))
+        o_vec = np.array(n_v).reshape(3,1)
+        '''
+            n_v(zeta) = [
+                [-mr*(v+xbc*r), mr(u-ybc*r), mr(xbc*u+ybc*v)]
+            ] 
+        '''
+
+        # tau =  D @ zeta_dot + o_vec # o_vec --> n(zeta)
+        zeta_dot = np.linalg.inv(D) @ (tau - o_vec)
+
+        return zeta_dot
+
+    def inverse_dynamics(self, body_vel):
+
+        pass
+
+    def wheel_config_dynamics(self):
+        pass
+
 
 

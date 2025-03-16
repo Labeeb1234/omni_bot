@@ -6,7 +6,7 @@ from omni_bot.omni_bot import OmniBot
 import threading
 import numpy as np
 
-bot = OmniBot(a=0.05, L=0.3, W=0.3, t=0.036) # all measurements in metres
+bot = OmniBot(a=0.05, L=0.3, W=0.3, t=0.036, m=4, Icz=0.1) # all measurements in metres
 
 fig, ax = plt.subplots()
 ax.set_xlim(-5, 5)
@@ -33,21 +33,25 @@ for pos in wheel_positions:
 
 
 dt = 0.05 # time_step
-
+body_vel = np.array([0.0, 0.0, 0.0]).reshape((3,1))
+n_v = np.array([0.0, 0.0, 0.0]).reshape((3,1))
 def control_loop(frame):
-
-    body_vel = [0.0, 0.0, -1.0]  # Move in x, y, and rotate
-
+    global body_vel, n_v
+    # body_vel = [0.5, 0.0, 0.0]  # Move in x, y, and rotate
+    # giving a control force/moment input (through the com of the bot)
+    tau = [0.0, 1.0, 0.0] # along x
+    zeta_dot = bot.forward_dynamics(tau=tau, n_v=n_v)
+    print(f"body_accel: {zeta_dot}")
+    body_vel = body_vel + zeta_dot*dt # ---> zeta
+    print(f"calculated body frame velocity: {body_vel}")
     # Compute wheel velocities
     omega = bot.inverse_kinematics(body_vel)
-    print(f"Wheel Velocity(RPM): {omega*60/(2*np.pi)}\n")
-
+    # print(f"Wheel Velocity(RPM): {omega*60/(2*np.pi)}\n")
     # Compute velocity in global frame
     vel_global = bot.forward_kinematics(omega)
-    print(f"Bot Global Velocity: {vel_global}\n")
-
-    # Update robot position (Euler Integration) ---> odomtery update
-    bot.update_odom(vel_global, dt)
+    # print(f"Bot Global Velocity: {vel_global}\n")
+    # bot.update_odom(vel_global, dt)
+    bot.dynamic_odom_update(vel_global, zeta_dot, dt)
     print(f"Bot Pose: {bot.pose}\n")
 
     # Update body
