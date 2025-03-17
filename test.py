@@ -1,21 +1,17 @@
 import numpy as np
-from omni_bot.env import OmniBotEnv
+from omni_bot.env_gym import OmniBotEnv
 import time  # For adding a slight delay
 
-env = OmniBotEnv()  # Initialize environment
+env = OmniBotEnv(render_mode="human")  # Initialize environment
 done = False
 state, _ = env.reset()  # Get initial state
-
+print(state)
 while not done:
     action = np.array([
-        [0.0, 0.0, 0.1],
-        [1.0, 0.0, 0.1],
-        [0.0, -1.0, 0.1]
+        [1.0, 1.0, 0.0],
     ])  # Rotate in place
     new_state, reward, dones, _ = env.step(actions=action)  # Take action
-    done = dones[1]
-
-    print(f"State: {new_state}, Reward: {reward}")  # Debug output
+    print(env.robot.pose)
+    print(f"State: {new_state}, Reward: {reward}, dones: {dones}")  # Debug output
     env.render()  # Update visualization
 
-    time.sleep(0.05)  # Prevents excessive CPU usage, allows rendering 
