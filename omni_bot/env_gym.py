@@ -15,7 +15,9 @@ class OmniBotEnv(gym.Env):
         super(OmniBotEnv, self).__init__()
 
         self.robot = OmniBot(a=0.05, L=0.3, W=0.3, t=0.036, m=4, Icz=0.1)
-        self.robot_trajectory = []
+        self.robot_trajectory = [] # in [m]
+        self.robot_trace = [] # in pygame pixel units
+    
         [self.size_x, self.size_y] = SIZE # size of the env in [m]
 
         # Gym Action & Observation Space
@@ -53,11 +55,12 @@ class OmniBotEnv(gym.Env):
         reward = 0.0
         done = np.linalg.norm(self.robot.pose[0:2]) > 4.5
 
-        self.robot_trajectory.append(self.robot.pose)
+        self.robot_trace.append(self.world_to_window([self.robot.pose[0,0], self.robot.pose[1,0]]))
+        self.robot_trajectory.append([self.robot.pose[0,0], self.robot.pose[1,0]])
+
         observations.append(obs)
         rewards.append(reward)
         done_flags.append(done)
-
         return np.array(observations), np.array(rewards), np.array(done_flags), {}
 
     def reset(self):
@@ -73,6 +76,7 @@ class OmniBotEnv(gym.Env):
         if self.window is None and self.render_mode == "human":
             pygame.init()
             pygame.display.init()
+            pygame.display.set_caption('omni_bot_env')
             self.window = pygame.display.set_mode((self.window_size, self.window_size))
         
         if self.clock is None and self.render_mode == "human":
@@ -95,6 +99,10 @@ class OmniBotEnv(gym.Env):
         wheel_centres = [self.world_to_window(wheel_pose) for wheel_pose in wheel_positions]
         for wheel_centre in wheel_centres:
             pygame.draw.circle(canvas, (0, 0, 0), wheel_centre, 5)
+
+        # robot trajectory trace
+        for trace in self.robot_trace:
+            pygame.draw.circle(canvas, (0, 255, 0), trace, 1, 1)
         
         if self.render_mode == "human":
             # The following line copies our drawings from `canvas` to the visible window
@@ -116,9 +124,11 @@ class OmniBotEnv(gym.Env):
     def load_trajectory(self, filename="robot_trajectory.npy"):
         #Load and visualize previous trajectories.
         data = np.load(filename, allow_pickle=True)
-        plt.plot(data[0], data[1], 'r--', label=f'Robot')
+        plt.plot(data[:, 0], data[:, 1], 'r--', label=f'Robot')
+        plt.axis('equal')
         plt.legend()
         plt.show()
+        
 
     def close(self):
         if self.window is not None:
