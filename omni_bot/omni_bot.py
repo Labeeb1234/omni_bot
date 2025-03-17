@@ -46,7 +46,7 @@ class OmniBot:
         body_glob = rotz @ body
         body_glob = body_glob.T
         body_glob[:, 0] += trans[0, 0]
-        body_glob[:, 1] += trans[1,0]
+        body_glob[:, 1] += trans[1, 0]
 
         return body_glob # global
 
