@@ -17,8 +17,9 @@
 
 - Teleop Test for testing the kinematic and dynamic motion of the system 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/69baf61d-d799-4e36-b177-d686970a907c" alt="teleop test" height="480" width="640">
+  <img src="https://github.com/user-attachments/assets/c38af580-9c29-49cf-a4d7-2dde2743a6a3" alt="teleop test" height="480" width="640">
 </div>
+
 
 
 
