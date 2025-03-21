@@ -68,7 +68,7 @@ ekf_filter_node:
 #         estimation node from robot_localization! However, that instance should *not* fuse the global data.
     map_frame: map                   # Defaults to "map" if unspecified
     odom_frame: odom                 # Defaults to "odom" if unspecified
-    base_link_frame: base_link  # Defaults to "base_link" if unspecified
+    base_link_frame: base_footprint  # Defaults to "base_link" if unspecified
     world_frame: odom                # Defaults to the value of odom_frame if unspecified
 
 # The filter accepts an arbitrary number of inputs from each input message type (nav_msgs/Odometry,
@@ -129,7 +129,7 @@ ekf_filter_node:
 # For messages that have both pose and twist data, the parameter specifies to which part of the message we are applying
 # the thresholds.
     odom0_pose_rejection_threshold: 5.0
-    odom0_twist_rejection_threshold: 1.0
+    odom0_twist_rejection_threshold: 1.0 
 
     
 

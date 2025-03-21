@@ -47,9 +47,27 @@ install(DIRECTORY include/
   DESTINATION include
 )
 
+
+add_executable(lidar_utils_node src/lidar_utils.cpp)
+ament_target_dependencies(lidar_utils_node
+  rclcpp
+  sensor_msgs
+)
+
+install(
+  TARGETS
+    lidar_utils_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
 install(
   DIRECTORY
     config
+    rviz
+    launch
+    nav_params
+    maps
   DESTINATION
     share/${PROJECT_NAME}
 )

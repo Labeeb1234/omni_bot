@@ -86,7 +86,7 @@ int main(int argc, char** argv){
             sensor_msgs::msg::JointState joint_cmd;
             Omega wheel_angular_vel = omni_bot.getRPM(vel_cmd.avg_u, vel_cmd.avg_v, vel_cmd.avg_r);
             RCLCPP_INFO(rclcpp::get_logger("omni_bot_controller_node"), "[%lf %lf %lf %lf]RPM", wheel_angular_vel.rpm1, wheel_angular_vel.rpm2, wheel_angular_vel.rpm3, wheel_angular_vel.rpm4);
-            omni_bot.convert_to_rads(wheel_angular_vel);
+            omni_bot.convert_to_rads(wheel_angular_vel); // converting RPM to rad/s
             RCLCPP_INFO(rclcpp::get_logger("omni_bot_controller_node"), "[%lf %lf %lf %lf]rad/s", wheel_angular_vel.rpm1, wheel_angular_vel.rpm2, wheel_angular_vel.rpm3, wheel_angular_vel.rpm4);
             
             joint_cmd.header.stamp = node->get_clock()->now();
