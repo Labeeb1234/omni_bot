@@ -48,113 +48,113 @@
       <img src="https://github.com/user-attachments/assets/a00cf2be-1857-4491-9415-c1ecd66b9d03" alt="linear_motion">
     </div>
 
-- Bot Y-Motion (strafe_motion)
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/77bf3863-7099-4e29-9ece-14140c710ea8" alt="strafe_motion">
-</div>
+  - Bot Y-Motion (strafe_motion)
+  - <div align="center">
+     <img src="https://github.com/user-attachments/assets/77bf3863-7099-4e29-9ece-14140c710ea8" alt="strafe_motion">
+    </div>
 
-- Bot Holonomic-Motion
-<div align="center">
-  <img src="" alt="holonomic_motion">
-</div>
+  - Bot Holonomic-Motion
+  - <div align="center">
+     <img src="" alt="holonomic_motion">
+    </div>
 
-- To achieve strafing or the holonomic motion in general we have to tune a few nav params under the amcl and controller server section.
-- Under the amcl section this param needs to be added/changed
-``` yaml
-amcl:
-  ros__parameters:
-    robot_model_type: "nav2_amcl::OmniMotionModel"
-```
+  - To achieve strafing or the holonomic motion in general we have to tune a few nav params under the amcl and controller server section.
+  - Under the amcl section this param needs to be added/changed
+  ``` yaml
+  amcl:
+    ros__parameters:
+      robot_model_type: "nav2_amcl::OmniMotionModel"
+  ```
 
-- Under the controller server as well as the dwb local planner params these changes need to be made
-``` yaml
-controller_server:
-  ros__parameters:
-    min_x_velocity_threshold: 0.001 
-    min_y_velocity_threshold: 0.001
-    min_theta_velocity_threshold: 0.001
-
-    # add the other default params too don't copy paste this as it is 
-
-    FollowPath:
-      plugin: "dwb_core::DWBLocalPlanner"
-      angular_dist_threshold: 0.785
-      forward_sampling_distance: 0.5
-      rotate_to_heading_angular_vel: 5.0
-      max_angular_accel: 3.2
-      simulate_ahead_time: 1.0
-      rotate_to_goal_heading: false
-      
-      debug_trajectory_details: True
-      min_vel_x: -0.5
-      min_vel_y: -0.5
-      max_vel_x: 0.5
-      max_vel_y: 0.5
-      max_vel_theta: 0.35
-      min_speed_xy: -0.5
-      max_speed_xy: 0.5
-      min_speed_theta: -0.35
-
-      acc_lim_x: 2.5
-      acc_lim_y: 2.5
-      acc_lim_theta: 3.2
-      decel_lim_x: -2.5
-      decel_lim_y: -2.5
-      decel_lim_theta: -3.2
-
-      vx_samples: 20
-      vy_samples: 20
-      vtheta_samples: 20
-
-      sim_time: 1.7
-      linear_granularity: 0.05
-      angular_granularity: 0.025
-      transform_tolerance: 0.2
-      xy_goal_tolerance: 0.22
-      trans_stopped_velocity: 0.25
-      short_circuit_trajectory_evaluation: True
-      stateful: True
-
-      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      
-      BaseObstacle.scale: 0.02
-
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-
-      GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
-
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-
-      RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 5.0
-      RotateToGoal.lookahead_time: -1.0
-
-```
-
+  - Under the controller server as well as the dwb local planner params these changes need to be made
+  ``` yaml
+  controller_server:
+    ros__parameters:
+      min_x_velocity_threshold: 0.001 
+      min_y_velocity_threshold: 0.001
+      min_theta_velocity_threshold: 0.001
   
-- Note if you are also using velocity smoothers those params also require a few changes to get holonomic motion, given below are the changes params for the same
-``` yaml
-velocity_smoother:
-  ros__parameters:
-    smoothing_frequency: 20.0
-    scale_velocities: false
-    feedback: "OPEN_LOOP"
-    max_velocity: [0.5, 0.5, 0.35]
-    min_velocity: [-0.5, -0.5, -0.35]
-    deadband_velocity: [0.0, 0.0, 0.0]
-    velocity_timeout: 1.0
-    max_accel: [2.5, 2.5, 3.2]
-    max_decel: [-2.5, -2.5, -3.2]
-    odom_topic: "odom"
-    odom_duration: 0.1
-    use_realtime_priority: false
-    enable_stamped_cmd_vel: false
-```
-
-### NAV2 Testing w/ DWB-SMAC Combination
+      # add the other default params too don't copy paste this as it is 
+  
+      FollowPath:
+        plugin: "dwb_core::DWBLocalPlanner"
+        angular_dist_threshold: 0.785
+        forward_sampling_distance: 0.5
+        rotate_to_heading_angular_vel: 5.0
+        max_angular_accel: 3.2
+        simulate_ahead_time: 1.0
+        rotate_to_goal_heading: false
+        
+        debug_trajectory_details: True
+        min_vel_x: -0.5
+        min_vel_y: -0.5
+        max_vel_x: 0.5
+        max_vel_y: 0.5
+        max_vel_theta: 0.35
+        min_speed_xy: -0.5
+        max_speed_xy: 0.5
+        min_speed_theta: -0.35
+  
+        acc_lim_x: 2.5
+        acc_lim_y: 2.5
+        acc_lim_theta: 3.2
+        decel_lim_x: -2.5
+        decel_lim_y: -2.5
+        decel_lim_theta: -3.2
+  
+        vx_samples: 20
+        vy_samples: 20
+        vtheta_samples: 20
+  
+        sim_time: 1.7
+        linear_granularity: 0.05
+        angular_granularity: 0.025
+        transform_tolerance: 0.2
+        xy_goal_tolerance: 0.22
+        trans_stopped_velocity: 0.25
+        short_circuit_trajectory_evaluation: True
+        stateful: True
+  
+        critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+        
+        BaseObstacle.scale: 0.02
+  
+        PathAlign.scale: 32.0
+        PathAlign.forward_point_distance: 0.1
+  
+        GoalAlign.scale: 24.0
+        GoalAlign.forward_point_distance: 0.1
+  
+        PathDist.scale: 32.0
+        GoalDist.scale: 24.0
+  
+        RotateToGoal.scale: 32.0
+        RotateToGoal.slowing_factor: 5.0
+        RotateToGoal.lookahead_time: -1.0
+  
+  ```
+  
+    
+  - Note if you are also using velocity smoothers those params also require a few changes to get holonomic motion, given below are the changes params for the same
+  ``` yaml
+  velocity_smoother:
+    ros__parameters:
+      smoothing_frequency: 20.0
+      scale_velocities: false
+      feedback: "OPEN_LOOP"
+      max_velocity: [0.5, 0.5, 0.35]
+      min_velocity: [-0.5, -0.5, -0.35]
+      deadband_velocity: [0.0, 0.0, 0.0]
+      velocity_timeout: 1.0
+      max_accel: [2.5, 2.5, 3.2]
+      max_decel: [-2.5, -2.5, -3.2]
+      odom_topic: "odom"
+      odom_duration: 0.1
+      use_realtime_priority: false
+      enable_stamped_cmd_vel: false
+  ```
+  
+  ### NAV2 Testing w/ DWB-SMAC Combination
 
 
 
