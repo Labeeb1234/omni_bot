@@ -41,7 +41,7 @@
   <img src="https://github.com/user-attachments/assets/c38af580-9c29-49cf-a4d7-2dde2743a6a3" alt="teleop test">
 </div>
 
-## Nav2 Testing w/ DWB-NAVFN Planner Combination
+## Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
 
 - Bot X-Motion (linear_motion)
 <div align="center">
@@ -58,6 +58,26 @@
   <img src="" alt="holonomic_motion">
 </div>
 
+- To achieve strafing or the holonomic motion in general we have to tune a few nav params under the amcl and controller server section.
+  
+- Note if you are also using velocity smoothers those params also require a few changes to get holonomic motion, given below are the changes params for the same
+``` yaml
+velocity_smoother:
+  ros__parameters:
+    smoothing_frequency: 20.0
+    scale_velocities: false
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.5, 0.5, 0.35]
+    min_velocity: [-0.5, -0.5, -0.35]
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 1.0
+    max_accel: [2.5, 2.5, 3.2]
+    max_decel: [-2.5, -2.5, -3.2]
+    odom_topic: "odom"
+    odom_duration: 0.1
+    use_realtime_priority: false
+    enable_stamped_cmd_vel: false
+```
 
 
 
