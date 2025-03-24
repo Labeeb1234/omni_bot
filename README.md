@@ -48,6 +48,17 @@
   <img src="https://github.com/user-attachments/assets/a00cf2be-1857-4491-9415-c1ecd66b9d03" alt="linear_motion">
 </div>
 
+- Bot Y-Motion (strafe_motion)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/77bf3863-7099-4e29-9ece-14140c710ea8" alt="strafe_motion">
+</div>
+
+- Bot Holonomic-Motion
+<div align="center">
+  <img src="" alt="holonomic_motion">
+</div>
+
+
 
 
 
