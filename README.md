@@ -1,4 +1,4 @@
-# A repo for keeping track of path planning tests on a 4WODR
+![holonomic_motion](https://github.com/user-attachments/assets/c8efc7be-0c97-4a1c-966b-67425ff60385)# A repo for keeping track of path planning tests on a 4WODR
 
 ## CAD Model (for simulation purposes hardware design not finalized yet)
 
@@ -55,8 +55,9 @@
 
   - Bot Holonomic-Motion
     <div align="center">
-     <img src="" alt="holonomic_motion">
+     <img src="https://github.com/user-attachments/assets/5edfca49-4f8a-4bbd-8fc8-4f7a64a72c06" alt="holonomic_motion">
     </div>
+
 
   - To achieve strafing or the holonomic motion in general we have to tune a few nav params under the amcl and controller server section.
   - Under the amcl section this param needs to be added/changed
