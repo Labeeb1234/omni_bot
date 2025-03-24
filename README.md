@@ -41,7 +41,7 @@
   <img src="https://github.com/user-attachments/assets/c38af580-9c29-49cf-a4d7-2dde2743a6a3" alt="teleop test">
 </div>
 
-## Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
+### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
 
 - Bot X-Motion (linear_motion)
 <div align="center">
@@ -153,6 +153,8 @@ velocity_smoother:
     use_realtime_priority: false
     enable_stamped_cmd_vel: false
 ```
+
+### NAV2 Testing w/ DWB-SMAC Combination
 
 
 
