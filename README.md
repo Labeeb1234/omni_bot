@@ -41,12 +41,12 @@
   <img src="https://github.com/user-attachments/assets/c38af580-9c29-49cf-a4d7-2dde2743a6a3" alt="teleop test">
 </div>
 
-### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
+- ### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
 
-- Bot X-Motion (linear_motion)
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/a00cf2be-1857-4491-9415-c1ecd66b9d03" alt="linear_motion">
-</div>
+  - Bot X-Motion (linear_motion)
+  - <div align="center">
+      <img src="https://github.com/user-attachments/assets/a00cf2be-1857-4491-9415-c1ecd66b9d03" alt="linear_motion">
+    </div>
 
 - Bot Y-Motion (strafe_motion)
 <div align="center">
