@@ -27,7 +27,7 @@
 - Fix for this issue is shown below in the image
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f90847ee-fc3f-46b3-a15c-5dcf6e306469" alt="Fix-1" height="640" width="480">
+  <img src="https://github.com/user-attachments/assets/f90847ee-fc3f-46b3-a15c-5dcf6e306469" alt="Fix-1" height="480" width="640">
 </div>
 
 - **Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticeed this during a SLAM test with my environment.
