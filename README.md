@@ -13,6 +13,11 @@
 </div>
 
 
+## simulation integration process
+- same as before just like in my previous setups for manipulators and mobile manipulators in Isaac-Sim
+- Integration with ROS2,  this step is quite important for testing ROS2 stack on Isaac-Sim
+
+
 ## Demo Videos/Gifs
 
 - Teleop Test for testing the kinematic and dynamic motion of the system 
