@@ -30,7 +30,7 @@
   <img src="https://github.com/user-attachments/assets/4e48c5b6-1c84-4c0b-89b2-dd49a036cb00" alt="Fix-1">
 </div>
 
-- **Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticeed this during a SLAM test with my environment.
+**Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticed this during a SLAM test with my environment.
   - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.  
 
 
