@@ -10,8 +10,9 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(tf2 REQUIRED)
 
-
+###########################################################################
 add_library(omni_bot_kinematics SHARED
   src/omni_bot_kinematics.cpp
 )
@@ -46,20 +47,34 @@ install(TARGETS
 install(DIRECTORY include/
   DESTINATION include
 )
-
+##############################################################################
 
 add_executable(lidar_utils_node src/lidar_utils.cpp)
 ament_target_dependencies(lidar_utils_node
   rclcpp
   sensor_msgs
 )
-
 install(
   TARGETS
     lidar_utils_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
+###############################################################################
+
+add_executable(nav_commander_node src/nav_commander.cpp)
+ament_target_dependencies(nav_commander_node
+  rclcpp
+  geometry_msgs
+  tf2
+)
+install(
+  TARGETS
+    nav_commander_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+################################################################################
 
 install(
   DIRECTORY

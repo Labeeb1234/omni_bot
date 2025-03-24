@@ -1,15 +1,14 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import (DeclareLaunchArgument, GroupAction,
-                            IncludeLaunchDescription, SetEnvironmentVariable)
+from launch.actions import (DeclareLaunchArgument, GroupAction, IncludeLaunchDescription, SetEnvironmentVariable)
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.actions import PushRosNamespace
 from nav2_common.launch import RewrittenYaml
-
+import time
 
 def generate_launch_description():
     bringup_dir = get_package_share_directory('nav2_bringup')
@@ -71,7 +70,7 @@ def generate_launch_description():
 
     declare_params_file_cmd = DeclareLaunchArgument(
         'params_file',
-        default_value=os.path.join(nav2_dir, 'nav_params', 'default_nav.yaml'),
+        default_value=os.path.join(nav2_dir, 'nav_params', 'test_nav.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
 
     declare_autostart_cmd = DeclareLaunchArgument(
@@ -99,6 +98,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py'),
         ),
+        condition=IfCondition(slam),
         launch_arguments=[('slam_params_file', LaunchConfiguration('async_param'))],
     )
 
@@ -172,6 +172,7 @@ def generate_launch_description():
                               'container_name': 'nav2_container'}.items()),
     ])
 
+
     ld = LaunchDescription()
     ld.add_action(stdout_linebuf_envvar) 
     ld.add_action(declare_namespace_cmd)
@@ -190,8 +191,8 @@ def generate_launch_description():
     ld.add_action(robot_localization_node)
 
     # # uncomment this for SLAM-operation (ceres-solver: SLAM optimizer algo)
-    # ld.add_action(declare_mapper_online_async_param_cmd)
-    # ld.add_action(mapper_online_async_param_launch)
+    ld.add_action(declare_mapper_online_async_param_cmd)
+    ld.add_action(mapper_online_async_param_launch)
 
 
     return ld
