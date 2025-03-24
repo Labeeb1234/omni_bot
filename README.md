@@ -12,10 +12,26 @@
   <img src="https://github.com/user-attachments/assets/2b375081-0e96-4112-92a6-ad9d69afaf21" alt="OmniBot IsaacSim">
 </div>
 
+## Lower Kinematics Controller (custom)
 
 ## simulation integration process
 - same as before just like in my previous setups for manipulators and mobile manipulators in Isaac-Sim
 - Integration with ROS2,  this step is quite important for testing ROS2 stack on Isaac-Sim
+- While interfacing LiDAR from IsaacSim to ROS2 you may encounter an issue with the angle unit conversions. This issue may prevent you from doing SLAM (mainly) sometimes navigation too. The terminal msg indicating this issue is given below.
+
+``` bash
+[async_slam_toolbox_node-3] LaserRangeScan contains 720 range readings, expected 14
+```
+
+- Issue: when sending the azimuthal range from "Isaac Read LiDAR beam Node" (omni-graph) to "ROS2 LaserScan Node" (omni-graph) a mis-conversion of units occurs as in when the azimuthal range is set as say 360 degrees in the LiDAR sensor prim in IsaacSim, the "Isaac Read LiDAR beam Node" converts it into radians but the "ROS2 LaserScan Node" takes it in as degree so it becomes +- 3.14 degrees instead of += 3.14 radians.
+- Fix for this issue is shown below in the image
+
+<div align="center">
+  <img src="" alt="Fix-1">
+</div>
+
+- **Note**>:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticeed this during a SLAM test with my environment.
+  - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.  
 
 
 ## Demo Videos/Gifs
