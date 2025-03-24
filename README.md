@@ -153,8 +153,8 @@
       use_realtime_priority: false
       enable_stamped_cmd_vel: false
   ```
-  
-  ### NAV2 Testing w/ DWB-SMAC Combination
+
+- ### NAV2 Testing w/ DWB-SMAC Combination
 
 
 
