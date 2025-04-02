@@ -87,7 +87,7 @@ def generate_launch_description():
 
     declare_log_level_cmd = DeclareLaunchArgument(
         'log_level', default_value='info',
-        description='log level')
+        description='log verbose level')
 
     declare_mapper_online_async_param_cmd = DeclareLaunchArgument(
         'async_param',

@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 ###########################################################################
 add_library(omni_bot_kinematics SHARED
@@ -31,6 +32,17 @@ ament_target_dependencies(omni_bot_controller
   sensor_msgs
 )
 
+add_executable(dumb_bot_controller src/dumb_bot_controller.cpp)
+target_include_directories(omni_bot_controller PUBLIC
+  include
+)
+target_link_libraries(dumb_bot_controller omni_bot_kinematics)
+ament_target_dependencies(dumb_bot_controller
+  rclcpp
+  nav_msgs
+  sensor_msgs
+)
+
 # Install targets with proper destinations
 install(TARGETS
   omni_bot_kinematics
@@ -41,6 +53,11 @@ install(TARGETS
 
 install(TARGETS
   omni_bot_controller
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
+  dumb_bot_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
