@@ -100,6 +100,7 @@ install(
     launch
     nav_params
     maps
+    bts
   DESTINATION
     share/${PROJECT_NAME}
 )
