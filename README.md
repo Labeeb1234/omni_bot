@@ -31,7 +31,13 @@
 </div>
 
 **Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticed this during a SLAM test with my environment.
-  - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.  
+  - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.
+
+
+### Update on simulation process
+- Using newer version of [Isaac-Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) version: 4.5.0 (from 2025)
+- The pkg dependency paths as well as the libraries had a full on revamp in the new version, the new version is also directly compatible with IsaacLab as well as the NVIDIA Cosmos for Physical-AI integration, Mobility Gen for get datasets for training model for path planning and also AI based rendering of the environments created in IsaacSim
+- Moving on the first few steps to handling asset creation from URDF remains the same --> enable the extensions required the difference being you just have to go the path of your URDF assets (hoping the paths to the meshes (obj/stls) as properly specified in 
 
 
 ## Demo Videos/Gifs
