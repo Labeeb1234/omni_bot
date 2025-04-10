@@ -45,11 +45,17 @@
   <img src="https://github.com/user-attachments/assets/005c8cd4-e563-4a5a-8256-20074be20ac6" alt="new joint specs">
 </div>
 
-- The next steps will be fixing collisions and materials for the colliding components. Here is the major difference, once the URDF is imported a directory containing the base asset is made, if 'create collisions from visuals is checked' the a single USD file will be created and this USD scene will have the bot model with three scopes (meshes, collisions and visuals) and one main prim of the asset. For fixing visuals and colllision we have to go to the respective scopes and change the required params, we can't change these params under the main prim (major change from the previous version), just for reference an image below shows a template for what was mentioned.
+- The next steps will be fixing collisions and materials for the colliding components. Here is the major difference, once the URDF is imported a directory containing the base asset is made, if 'create collisions from visuals is checked' the a single USD file will be created and this USD scene will have the bot model with three scopes (meshes, collisions and visuals) and one main prim of the asset. For fixing visuals and colllision we have to go to the respective scopes and change the required params, we can't change these params under the main prim (major change from the previous version), just for reference an image below shows a template for what was mentioned. In case 'create collisons from visuals was unchecked' then the initial directory containing the base asset USD will have another directory inside it called the 'configuration' which will contain 3 sepatate USD files for collision, meshes and visuals which makes things complicated, but the fixing process is same open the repective USD files and the change the params for fixing the base model and save it the changes would then automatically be reflected in the main base asset USD file.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/91c48e4a-8cf8-44ea-8f7d-b5e600ac0da1" alt="new config">
 </div>
+
+- For joint tuning its best to put the half configured asset into a test environment with physics scene and ground for testing the actuation and adding the sensors.
+- The rest of the process remains the same: make omni-graphs, create the kinematics layers, add sensors and finally interface with ROS2 (my version of ROS2 is humble with cycloneDDS)
+- For integration with ROS2-ROS2 bridge follow this [tutorial](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_ros.html#enabling-the-ros-bridge-extension) and for ROS2 tutorial [check this](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/index.html)
+
+**Note**: In the updated implementation additional sensors were added to the OmniBot, (front right, front left camera, depth sensor, RTX-based 3D-Lidar replacing the 2D-LiDAR) --> purpose of experimentation 
 
 
 
