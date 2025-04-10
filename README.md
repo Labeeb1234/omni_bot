@@ -45,6 +45,13 @@
   <img src="https://github.com/user-attachments/assets/005c8cd4-e563-4a5a-8256-20074be20ac6" alt="new joint specs">
 </div>
 
+- The next steps will be fixing collisions and materials for the colliding components. Here is the major difference, once the URDF is imported a directory containing the base asset is made, if 'create collisions from visuals is checked' the a single USD file will be created and this USD scene will have the bot model with three scopes (meshes, collisions and visuals) and one main prim of the asset. For fixing visuals and colllision we have to go to the respective scopes and change the required params, we can't change these params under the main prim (major change from the previous version), just for reference an image below shows a template for what was mentioned.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/91c48e4a-8cf8-44ea-8f7d-b5e600ac0da1" alt="new config">
+</div>
+
+
 
 
 
