@@ -30,7 +30,7 @@
   <img src="https://github.com/user-attachments/assets/4e48c5b6-1c84-4c0b-89b2-dd49a036cb00" alt="Fix-1">
 </div>
 
-**Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; **THIS BUG IS NOT PRESENT IN THE NEW ISAACSIM VERSION 4.5.0 (TESTED); I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticed this during a SLAM test with my environment.
+**Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; **THIS BUG IS NOT PRESENT IN THE NEW ISAACSIM VERSION 4.5.0 (TESTED)**; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticed this during a SLAM test with my environment.
   - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.
   - While simulating holonomic bot usually the wheel and roller collision (default one) causes the bot have an uneven and jerky motion to smoothen this motion follow these steps: -> First fix the collisions of the wheels and rollers by making sure the collision model is convex decompostion (best as of now to make collisions around oblique shapes like the rollers of a mecanum bot or omni bot) make sure the 
 
@@ -54,14 +54,14 @@
 - For joint tuning its best to put the half configured asset into a test environment with physics scene and ground for testing the actuation and adding the sensors.
 - The rest of the process remains the same: make omni-graphs, create the kinematics layers, add sensors and finally interface with ROS2 (my version of ROS2 is humble with cycloneDDS)
 - For integration with ROS2-ROS2 bridge follow this [tutorial](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_ros.html#enabling-the-ros-bridge-extension) and for ROS2 tutorial [check this](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/index.html)
+- The generic rotating lidar bug present in the IsaacSim version 4.2.0 got fixed IsaacSim version 4.5.0 so the omni graph in the new version look as shown below.
+- 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f6094fbf-8e47-4377-afa9-c6dd2e2da406" alt="2D_rotating lidar graph">
+</div
 
-**Note**: In the updated implementation additional sensors were added to the OmniBot, (front right, front left camera, depth sensor, RTX-based 3D-Lidar replacing the 2D-LiDAR) --> purpose of experimentation 
-
-
-
-
-
-
+**Note**: In the updated implementation additional sensors were added to the OmniBot, (front right, front left camera, depth sensor, RTX-based 3D-Lidar replacing the 2D-LiDAR) --> purpose of experimentation
+    
 ## Demo Videos/Gifs
 
 - Teleop Test for testing the kinematic and dynamic motion of the system 
