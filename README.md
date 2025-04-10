@@ -1,4 +1,4 @@
-![holonomic_motion](https://github.com/user-attachments/assets/c8efc7be-0c97-4a1c-966b-67425ff60385)# A repo for keeping track of path planning tests on a 4WODR
+# A repo for keeping track of path planning tests on a 4WODR
 
 ## CAD Model (for simulation purposes hardware design not finalized yet)
 
