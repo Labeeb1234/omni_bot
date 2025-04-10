@@ -32,12 +32,21 @@
 
 **Note**:  - Issue was encountered in IsaacSim ver: 4.2.0, ROS2-Humble Ubuntu 22.04; not sure if it still persists in IsaacSim ver: 4.5.0; I am not sure if everyone may encounter this issue as I have not seen any one report this issue before; I noticed this during a SLAM test with my environment.
   - Another note the terminal msg show above can come in other ways too, this is one such method to get this msg.
+  - While simulating holonomic bot usually the wheel and roller collision (default one) causes the bot have an uneven and jerky motion to smoothen this motion follow these steps: -> First fix the collisions of the wheels and rollers by making sure the collision model is convex decompostion (best as of now to make collisions around oblique shapes like the rollers of a mecanum bot or omni bot) make sure the 
 
 
 ### Updated on simulation process
 - Using newer version of [Isaac-Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) version: 4.5.0 (from 2025)
 - The pkg dependency paths as well as the libraries had a full on revamp in the new version, the new version is also directly compatible with IsaacLab as well as the NVIDIA Cosmos for Physical-AI integration, Mobility Gen for get datasets for training model for path planning and also AI based rendering of the environments created in IsaacSim
-- Moving on the first few steps to handling asset creation from URDF remains the same --> enable the extensions required the difference being you just have to go the path of your URDF assets (hoping the paths to the meshes (obj/stls) as properly specified in 
+- Moving on the first few steps to handling asset creation from URDF remains the same --> enable the extensions required the difference being you just have to go the path of your URDF assets (hoping the paths to the meshes (obj/stls) is properly specified in your URDF file) double clicking the file would open up the URDF exported extenstion for import the model to a USD scene.
+- Make sure the joint drives are properly selected for each joints, also one thing to note is that the current step does not explictly import fixed joints into the USD from the URDF it just puts the corresponding fixed joints under the parent joint as sub-prims (as show below in the image). The active joints/drivable joints, be it position control or velocity or effort controlled, are explictly created in the USD from the URDF spec and put under joints scope in the USD layers. 
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/005c8cd4-e563-4a5a-8256-20074be20ac6" alt="new joint specs">
+</div>
+
+
+
 
 
 ## Demo Videos/Gifs
