@@ -65,7 +65,8 @@
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/cb41d4f7-645b-4246-8456-c839b4951221" alt="3D-rotating lidar point cloud smearing">
-</div 
+</div>
+
 
 ## Demo Videos/Gifs
 
