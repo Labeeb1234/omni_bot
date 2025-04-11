@@ -64,9 +64,8 @@
  - A problem with the current implementation of RTX LiDAR in isaacsim is that the point cloud data gets smeared when full scan data is published (publish full scan property enabled)(problem present as of 2025 APRIL Isaac version 4.5.0). (problem shown below)
   -
   <div align="center">
-    <img src="https://github.com/user-attachments/assets/cb41d4f7-645b-4246-8456-c839b4951221" alt="3D-rotating lidar point cloud smearing">
+    <img src="https://github.com/user-attachments/assets/f8027fab-c216-4875-812a-204b3f31b79b" alt="3D-rotating lidar point cloud smearing">
   </div>
-
 
 ## Demo Videos/Gifs
 
