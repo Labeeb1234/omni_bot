@@ -54,7 +54,7 @@ void command_vel_callback(const geometry_msgs::msg::Twist::SharedPtr msg){
 int main(int argc, char** argv){
 
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<rclcpp::Node>("omni_bot_controller_node");
+    auto node = std::make_shared<rclcpp::Node>("omni_bot_controller_node", "");
     // defining kinematics
     FOmniKinematics omni_bot(bot_prop.d, bot_prop.L, bot_prop.W, bot_prop.t);
 
