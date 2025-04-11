@@ -61,7 +61,11 @@
 </div
 
 **Note**: - In the updated implementation additional sensors were added to the OmniBot, (front right, front left camera, depth sensor, RTX-based 3D-Lidar replacing the 2D-LiDAR) --> purpose of experimentation
- - A problem with the current implementation of RTX LiDAR in isaacsim is that the point cloud data gets smeared when used at high scan rates (problem present as of 2025 APRIL Isaac version 4.5.0).
+ - A problem with the current implementation of RTX LiDAR in isaacsim is that the point cloud data gets smeared when full scan data is published (publish full scan property enabled)(problem present as of 2025 APRIL Isaac version 4.5.0). (problem shown below)
+
+<div align="center">
+  <img src="" alt="3D-rotating lidar point cloud smearing">
+</div
 
     
 ## Demo Videos/Gifs
