@@ -97,6 +97,7 @@ class OmniBot:
     
 
     # ------------------------------------------
+    # ODOMETRY UPDATE
     def update_odom(self, vel_global, dt):
         self.pose[0,0] += vel_global[0, 0] * dt
         self.pose[1,0] += vel_global[1, 0] * dt
@@ -141,7 +142,6 @@ class OmniBot:
         return zeta_dot
 
     def inverse_dynamics(self, body_vel):
-
         pass
 
     def wheel_config_dynamics(self):
