@@ -206,5 +206,5 @@
   <img src="https://github.com/user-attachments/assets/a90cd675-712b-48ba-964b-8ab58b674637" alt="multi-bot-feature-test-demo">
 </div>
 
-- The module is still subject to changes and is unpolished 
+- The module is still subject to changes and is a bit unpolished 
 
