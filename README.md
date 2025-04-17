@@ -188,6 +188,10 @@
       enable_stamped_cmd_vel: false
   ```
 
+- ** Dynamic Obstacle avoidance w/ DWB local controller/planner
+
+
+
 - ### NAV2 Testing w/ DWB-SMAC Combination
 
 
