@@ -188,7 +188,7 @@
       enable_stamped_cmd_vel: false
   ```
 
-- ** Dynamic Obstacle avoidance w/ DWB local controller/planner
+- **Dynamic Obstacle avoidance w/ DWB local controller/planner**
 
 
 
