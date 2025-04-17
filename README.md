@@ -35,7 +35,7 @@
   - While simulating holonomic bot usually the wheel and roller collision (default one) causes the bot have an uneven and jerky motion to smoothen this motion follow these steps: -> First fix the collisions of the wheels and rollers by making sure the collision model is convex decompostion (best as of now to make collisions around oblique shapes like the rollers of a mecanum bot or omni bot) make sure the 
 
 
-### Updated on simulation process
+### Updated simulation process
 - Using newer version of [Isaac-Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) version: 4.5.0 (from 2025)
 - The pkg dependency paths as well as the libraries had a full on revamp in the new version, the new version is also directly compatible with IsaacLab as well as the NVIDIA Cosmos for Physical-AI integration, Mobility Gen for get datasets for training model for path planning and also AI based rendering of the environments created in IsaacSim
 - Moving on the first few steps to handling asset creation from URDF remains the same --> enable the extensions required the difference being you just have to go the path of your URDF assets (hoping the paths to the meshes (obj/stls) is properly specified in your URDF file) double clicking the file would open up the URDF exported extenstion for import the model to a USD scene.
