@@ -16,6 +16,7 @@ class OmniBotEnv(gym.Env):
         self.robot = OmniBot(a=0.05, L=0.3, W=0.3, t=0.036, m=4, Icz=0.1)
         self.robot_trajectory = [] # in [m]
         self.robot_trace = [] # in pygame pixel units
+        self.distances_to_obstacles = None # in [m]
     
         [self.size_x, self.size_y] = SIZE # size of the env in [m]
         self.grid_size = grid_size
@@ -24,10 +25,15 @@ class OmniBotEnv(gym.Env):
         # Define the occupancy grid (0 = free, 1 = occupied, 0.5 = unknown (not in use for now))
         self.occupancy_grid = np.random.choice([0, 1], size=grid_size, p=[0.99, 0.01])
         self.resolution = self.size_x/self.grid_size[0] # square physical env
+        self.num_obstacles = self.occupancy_grid[self.occupancy_grid == 1].shape[0]
+        print("*"*25+"OCCUPANCY GRID INFO"+"*"*25)
+        print(f"\nnumber of obstalces: {self.num_obstacles}\n")
+        print("*"*50)
 
         # defining the gymnasium observation and action spaces
         self.observation_space = gym.spaces.Dict({
-            "robot_pose": gym.spaces.Box(-self.size_x+1, self.size_x-1, shape=(3,), dtype=float)
+            "robot_pose": gym.spaces.Box(-self.size_x+1, self.size_x-1, shape=(3,), dtype=float),
+            "distances_to_obstacles": gym.spaces.Box(0.0, self.size_x*np.sqrt(2), shape=(self.num_obstacles,), dtype=float)
         })
         self.action_space = gym.spaces.Discrete(6)
         self._action_to_direction = {
@@ -71,11 +77,21 @@ class OmniBotEnv(gym.Env):
     def _draw_obstacle_circle_cost(self, canvas, epsilon=5.0):
         obstacle_coords = self.get_obstacle_info()
         for obs in obstacle_coords:
-            world_x, world_y = self.occgrid_to_world(obs)
-            print(f"Obstacle at grid {obs} is at world coordinates: ({world_x:.2f}, {world_y:.2f})") 
+            # world_x, world_y = self.occgrid_to_world(obs)
+            # print(f"Obstacle at grid {obs} is at world coordinates: ({world_x:.2f}, {world_y:.2f})") 
             x, y = self.occgrid_to_window(obs)
             pygame.draw.circle(canvas, (255, 0, 0), (x, y), epsilon/self.resolution, 2)
     
+    def calculate_distance_to_obs(self, obstacle_coords):
+        # taking in obstacle coords in pixel format [y, x] (occupancy grid frame)
+        dists_to_obs = []
+        for i, obs in enumerate(obstacle_coords):
+            xm, ym = self.occgrid_to_world(obs)
+            dist_to_obs = np.linalg.norm(self.robot.pose[0:2, 0]-np.array([xm, ym]))
+            # dist_to_obs = np.sqrt((self.robot.pose[0,0]-xm)**2 + (self.robot.pose[1,0]-ym)**2)
+            dists_to_obs.append((i, dist_to_obs))
+        return dists_to_obs
+
     def step(self, action): # Apply action to robot, update state, reward and return observations
         # rewards = []
         # done_flags = []
@@ -91,18 +107,23 @@ class OmniBotEnv(gym.Env):
         self.robot_trace.append(self.world_to_window([self.robot.pose[0,0], self.robot.pose[1,0]])) # in pygame pixel coords
         self.robot_trajectory.append([self.robot.pose[0,0], self.robot.pose[1,0]]) # in real world coords
 
-        observations = {"robot_pose": self.robot.pose}
+        # calculating the distance to obstacles, basically the distance to black/occupied grid cell
+        self.distances_to_obstacles = self.calculate_distance_to_obs(self.get_obstacle_info())
+        if self.distances_to_obstacles is None:
+            return
+
+        observations = {
+            "robot_pose": self.robot.pose,
+            "distances_to_obstacles": self.distances_to_obstacles 
+        }
         reward = 0.0
-        terminated = np.linalg.norm(self.robot.pose[0:2]) > 4.5 # done if bot goes out of bounds
+        terminated = np.linalg.norm(self.robot.pose[0:2]) > 2.4 # done if bot goes out of bounds
         truncated = False
         info = {}
 
         if self.render_mode == "human":
             self._render_frame()
-        
-        # observations.append(obs)
-        # rewards.append(reward)
-        # done_flags.append(done)
+
         return observations, reward, terminated, truncated, info
 
     def reset(self, seed: Optional[int] = None, options: Optional[dict] = None):
@@ -110,7 +131,12 @@ class OmniBotEnv(gym.Env):
         super().reset(seed=seed, options=options)
 
         self.robot.pose = np.array([0.0, 0.0, 0.0]).reshape(3,1)
-        observations = {"robot_pose": self.robot.pose}
+        # initial values 
+        self.distances_to_obstacles = self.calculate_distance_to_obs(self.get_obstacle_info())
+        observations = {
+            "robot_pose": self.robot.pose,
+            "distances_to_obstacles": self.distances_to_obstacles
+        }
         info = {}
         return observations, info
 
