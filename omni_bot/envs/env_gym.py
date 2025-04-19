@@ -23,7 +23,7 @@ class OmniBotEnv(gym.Env):
 
         # Define the occupancy grid (0 = free, 1 = occupied, 0.5 = unknown (not in use for now))
         self.occupancy_grid = np.random.choice([0, 1], size=grid_size, p=[0.99, 0.01])
-        self.resolution = 2*self.size_x/self.grid_size[0] # square physical env
+        self.resolution = self.size_x/self.grid_size[0] # square physical env
 
         # defining the gymnasium observation and action spaces
         self.observation_space = gym.spaces.Dict({
@@ -41,7 +41,7 @@ class OmniBotEnv(gym.Env):
 
         # ----------------------------------------------------
         self.window_size = 500
-        self.scale = self.window_size/(2*self.size_x) # from [m] to [pygame pixels]
+        self.scale = self.window_size/(self.size_x) # from [m] to [pygame pixels]
         self.clock = None
         self.window =None
 
@@ -50,13 +50,13 @@ class OmniBotEnv(gym.Env):
         self.dt = 1/self.metadata["render_fps"]
 
     def world_to_window(self, pose): # unit conversion from m->pixels
-        screen_x = int((pose[0] + self.size_x) * self.scale)
-        screen_y = int((self.size_y - pose[1]) * self.scale)
+        screen_x = int((pose[0] + self.size_x/2) * self.scale)
+        screen_y = int((self.size_y/2 - pose[1]) * self.scale)
         return screen_x,screen_y
 
     def occgrid_to_world(self, pixel, map_origin=(0.0,0.0)): # map origin is in metres scale ,  pixel in (y_pix, x_pix)
-        x_m = (pixel[0] - self.grid_size[1] // 2 + 0.5) * self.resolution - map_origin[0]
-        y_m = -(pixel[1] - self.grid_size[0] // 2 + 0.5) * self.resolution - map_origin[1]
+        x_m = (pixel[1] - self.grid_size[1] // 2 + 0.5) * self.resolution - map_origin[0]
+        y_m = -(pixel[0] - self.grid_size[0] // 2 + 0.5) * self.resolution - map_origin[1]
         return x_m, y_m
     
     def occgrid_to_window(self, pixel):
@@ -68,15 +68,14 @@ class OmniBotEnv(gym.Env):
         obstacle_coords = list(zip(indices[0], indices[1]))
         return obstacle_coords
         
-    def _draw_obstacle_circle_cost(self, canvas, epsilon=10.0):
+    def _draw_obstacle_circle_cost(self, canvas, epsilon=5.0):
         obstacle_coords = self.get_obstacle_info()
         for obs in obstacle_coords:
-            # world_x, world_y = self.occgrid_to_world(obs)
-            # print(f"Obstacle at grid ({obs[0]}, {obs[1]}) is at world coordinates: ({world_x:.2f}, {world_y:.2f})") 
-            x, y = self.occgrid_to_window((obs[1], obs[0]))
-            pygame.draw.circle(canvas, (255, 0, 0), (y, x), epsilon/self.resolution, 2)
-
-       
+            world_x, world_y = self.occgrid_to_world(obs)
+            print(f"Obstacle at grid {obs} is at world coordinates: ({world_x:.2f}, {world_y:.2f})") 
+            x, y = self.occgrid_to_window(obs)
+            pygame.draw.circle(canvas, (255, 0, 0), (x, y), epsilon/self.resolution, 2)
+    
     def step(self, action): # Apply action to robot, update state, reward and return observations
         # rewards = []
         # done_flags = []
@@ -88,10 +87,6 @@ class OmniBotEnv(gym.Env):
         eta_dot = self.robot.forward_kinematics(omega=omega)
         self.robot.update_odom(vel_global=eta_dot, dt=self.dt)
         
-        # obs = np.array([
-        #     self.robot.pose[0, 0], self.robot.pose[1, 0], self.robot.pose[2, 0],
-        # ], dtype=np.float32)
-
         # storing robot trajectory as real world or pixel coords
         self.robot_trace.append(self.world_to_window([self.robot.pose[0,0], self.robot.pose[1,0]])) # in pygame pixel coords
         self.robot_trajectory.append([self.robot.pose[0,0], self.robot.pose[1,0]]) # in real world coords
@@ -143,8 +138,8 @@ class OmniBotEnv(gym.Env):
         self._draw_obstacle_circle_cost(canvas)
 
         # Draw origin axes
-        pygame.draw.line(canvas, (255, 0, 0), self.world_to_window([0,0]), self.world_to_window([0.5, 0]), 3)  # X-axis
-        pygame.draw.line(canvas, (0, 255, 0), self.world_to_window([0,0]), self.world_to_window([0, 0.5]), 3)  # Y-axis
+        pygame.draw.line(canvas, (255, 0, 0), self.world_to_window([0,0]), self.world_to_window([0.3, 0]), 3)  # X-axis
+        pygame.draw.line(canvas, (0, 255, 0), self.world_to_window([0,0]), self.world_to_window([0, 0.3]), 3)  # Y-axis
 
         bot_body = self.robot.get_bot_outline() # (4x2) matrix (array of [x,y])
         body_outline = [self.world_to_window(corner) for corner in bot_body]
@@ -182,15 +177,14 @@ class OmniBotEnv(gym.Env):
                     color = (255, 255, 255) # free space pixel_values < (0,255) >
                 elif pixel_value == 1:
                     color = (0, 0, 0)
-                    # print(f"{self.occgrid_to_world((y,x))}")
-            
+
                 # drawing the grid-cell (each cell is a square)
                 pygame.draw.rect(
                     canvas,
                     color,
                     pygame.Rect(
-                        y*self.cell_size,
                         x*self.cell_size,
+                        y*self.cell_size,
                         self.cell_size,
                         self.cell_size
                     )
