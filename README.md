@@ -67,7 +67,7 @@
     <img src="https://github.com/user-attachments/assets/f8027fab-c216-4875-812a-204b3f31b79b" alt="3D-rotating lidar point cloud smearing">
   </div>
 
-## Demo Videos/Gifs
+## Demo Videos/Gifs (updated simulator version demos)
 
 - Teleop Test for testing the kinematic and dynamic motion of the system (IsaacSim 4.2.0)
 <div align="center">
