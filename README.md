@@ -86,6 +86,12 @@
   <img src="https://github.com/user-attachments/assets/9a741168-c277-44b1-8599-75f92d8052b8" alt="teleop-based SLAM testing">
 </div>
 
+- ### Mapped Environment
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/d7233250-18f4-4612-8131-a75fd4a2cbd4" alt="updated map">
+</div>
+
 
 - ### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
 
