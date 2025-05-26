@@ -76,14 +76,22 @@
 
 - Teleop Test for testing the kinematic and dynamic motion of the system (IsaacSim 4.5.0)
 <div align="center">
-  <img src="" alt="teleop test new version">
+  <img src="https://github.com/user-attachments/assets/1e3aa255-cca8-4d5e-97ae-f624c5882ac1" alt="teleop test new version">
 </div>
+
+- ### SLAM testing
+  
+- Teleop Based
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/9a741168-c277-44b1-8599-75f92d8052b8" alt="teleop-based SLAM testing">
+</div>
+
 
 - ### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
 
   - Bot X-Motion (linear_motion)
     <div align="center">
-      <img src="https://github.com/user-attachments/assets/a00cf2be-1857-4491-9415-c1ecd66b9d03" alt="linear_motion">
+      <img src="" alt="linear_motion">
     </div>
 
   - Bot Y-Motion (strafe_motion)
