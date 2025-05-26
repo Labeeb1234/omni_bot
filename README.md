@@ -101,7 +101,7 @@
 
   - Bot Holonomic-Motion
     <div align="center">
-     <img src="https://github.com/user-attachments/assets/5edfca49-4f8a-4bbd-8fc8-4f7a64a72c06" alt="holonomic_motion">
+     <img src="https://github.com/user-attachments/assets/5ad2a2fa-aca8-4d88-adca-c5297ee96e08" alt="holonomic_motion">
     </div>
 
 
