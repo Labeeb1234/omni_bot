@@ -69,9 +69,14 @@
 
 ## Demo Videos/Gifs
 
-- Teleop Test for testing the kinematic and dynamic motion of the system 
+- Teleop Test for testing the kinematic and dynamic motion of the system (IsaacSim 4.2.0)
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c38af580-9c29-49cf-a4d7-2dde2743a6a3" alt="teleop test">
+</div>
+
+- Teleop Test for testing the kinematic and dynamic motion of the system (IsaacSim 4.5.0)
+<div align="center">
+  <img src="" alt="teleop test new version">
 </div>
 
 - ### Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)
