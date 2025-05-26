@@ -96,7 +96,7 @@
 
   - Bot Y-Motion (strafe_motion)
     <div align="center">
-     <img src="https://github.com/user-attachments/assets/77bf3863-7099-4e29-9ece-14140c710ea8" alt="strafe_motion">
+     <img src="https://github.com/user-attachments/assets/b8ec864e-862b-4ee9-a32f-b8e7ba41c581" alt="strafe_motion">
     </div>
 
   - Bot Holonomic-Motion
