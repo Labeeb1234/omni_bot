@@ -91,7 +91,7 @@
 
   - Bot X-Motion (linear_motion)
     <div align="center">
-      <img src="(https://github.com/user-attachments/assets/56f5e3a7-578f-4c0c-b300-45809403471a" alt="linear_motion">
+      <img src="https://github.com/user-attachments/assets/56f5e3a7-578f-4c0c-b300-45809403471a" alt="linear_motion">
     </div>
 
   - Bot Y-Motion (strafe_motion)
