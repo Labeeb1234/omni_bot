@@ -207,16 +207,14 @@
       enable_stamped_cmd_vel: false
   ```
 
-- **Dynamic Obstacle avoidance w/ DWB local controller/planner**
-
-
-
-- ### NAV2 Testing w/ DWB-SMAC Combination
+- **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
+  - senario-1 (just one unmapped dynamic obstacle)
+  
 
 
 
 
-
+## ========================================================================================================
 ## An RL developer module specifically for 4wheeled-OmniBot using python (just for fun 😐, got sidetracked)  
 
 - Here is a working demo of a sample multi-bot environment 
