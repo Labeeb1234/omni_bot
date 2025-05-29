@@ -220,7 +220,7 @@
   - ```bash
       ros2 run teleop_twist_keyboard teleop_twist_keyboard ---> (only if you are using teleop) (for auto slam don't run this just give nav goal pose for using the local controllers as such)
     ```
-- In case you are using wavefrontier algorithm for auto slam (simulation) launch the cmd given below too
+- In case you are using wavefrontier algorithm for auto slam (simulation) launch the cmd given below and don't run the teleop twist keyboard node
   - ```bash
       
     ``` 
