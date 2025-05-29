@@ -89,7 +89,7 @@
 - ### Mapped Environment
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d7233250-18f4-4612-8131-a75fd4a2cbd4" alt="updated map">
+  <img src="https://github.com/user-attachments/assets/8cf0cc1a-1be2-4c66-b350-a6e4f93aadb7" alt="updated map">
 </div>
 
 
