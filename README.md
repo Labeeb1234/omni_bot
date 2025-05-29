@@ -15,9 +15,9 @@
 ## Lower Kinematics Controller (custom)
 
 ## simulation integration process
-- same as before just like in my previous setups for manipulators and mobile manipulators in Isaac-Sim
+- Same as before just like in my previous setups for manipulators and mobile manipulators in Isaac-Sim
 - Integration with ROS2,  this step is quite important for testing ROS2 stack on Isaac-Sim
-- While interfacing LiDAR from IsaacSim to ROS2 you may encounter an issue with the angle unit conversions. This issue may prevent you from doing SLAM (mainly) sometimes navigation too. The terminal msg indicating this issue is given below.
+- While interfacing LiDAR from IsaacSim to ROS2 you may encounter an issue with the angle unit conversions (not present from IsaacSim 4.5.0 onwards as per ik). This issue may prevent you from doing SLAM (mainly) sometimes navigation too. The terminal msg indicating this issue is given below.
 
 ``` bash
 [async_slam_toolbox_node-3] LaserRangeScan contains 720 range readings, expected 14
@@ -206,9 +206,39 @@
       use_realtime_priority: false
       enable_stamped_cmd_vel: false
   ```
+### **Commands To Run After Running Simulation**
+
+- By default all nodes run on simulation time as the default arg is set to 'True'
+
+- For SLAM simualtion
+  - ```bash
+      ros2 run omni_bot_navigation omni_bot_controller ---> (running the kinematics-based controller for motion)
+    ```
+  - ```bash
+      ros2 launch omni_bot_navigation nav_bringup.launch.py slam:=True 
+    ```
+  - ```bash
+      ros2 run teleop_twist_keyboard teleop_twist_keyboard ---> (only if you are using teleop) (for auto slam don't run this just give nav goal pose for using the local controllers as such)
+    ```
+- In case you are using wavefrontier algorithm for auto slam (simulation) launch the cmd given below too
+  - ```bash
+      
+    ``` 
+- For Map-Based NAV2 simulation
+  - ```bash
+      ros2 run omni_bot_navigation omni_bot_controller ---> (running the kinematics-based controller for motion)
+    ```
+  - ```bash
+      ros2 launch omni_bot_navigation nav_bringup.launch.py (go nuts after)
+    ```
+    
+  
 
 - **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
+The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
+
   - senario-1 (static obstacles mapped)
+  
   - senario-2 (unmmaped static obstacles)
   - senario-3 (just one unmapped dynamic obstacle)
   - senario-4 (more unmapped moving obstacles)
