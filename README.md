@@ -208,8 +208,14 @@
   ```
 
 - **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
-  - senario-1 (just one unmapped dynamic obstacle)
-  
+  - senario-1 (static obstacles mapped)
+  - senario-2 (unmmaped static obstacles)
+  - senario-3 (just one unmapped dynamic obstacle)
+  - senario-4 (more unmapped moving obstacles)
+
+
+
+- **Testing something different here (LQR-Frenet Frame based Local Planner)**
 
 
 
