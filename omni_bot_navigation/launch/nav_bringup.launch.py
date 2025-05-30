@@ -60,7 +60,7 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(nav2_dir, 'maps', 'map1.yaml'),
+        default_value=os.path.join(nav2_dir, 'maps', 'omni_bot_map.yaml'),
         description='Full path to map yaml file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -91,7 +91,7 @@ def generate_launch_description():
 
     declare_mapper_online_async_param_cmd = DeclareLaunchArgument(
         'async_param',
-        default_value=os.path.join(nav2_dir, 'config', 'mapper_params_online_async.yaml'),
+        default_value=os.path.join(nav2_dir, 'config', 'mapper_params_online_async.yaml'), 
         description='Set mappers online async param file')
     
     mapper_online_async_param_launch = IncludeLaunchDescription(

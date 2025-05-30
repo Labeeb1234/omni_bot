@@ -15,9 +15,6 @@ def generate_launch_description():
     share_dir = get_package_share_directory('omni_bot_navigation')
 
     namespace = LaunchConfiguration('namespace')
-    use_namespace = LaunchConfiguration('use_namespace')
-    use_respawn = LaunchConfiguration('use_respawn')
-    log_level = LaunchConfiguration('log_level')
     rviz_config_file = LaunchConfiguration('rviz_config')
 
     remappings = [('/tf', 'tf'),

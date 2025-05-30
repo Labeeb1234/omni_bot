@@ -47,22 +47,23 @@ def generate_launch_description():
     # pointcloud to 2d-laser scan data publisher
     pointcloud_to_laserscan_node = Node(
         package='pointcloud_to_laserscan',
-        executable='pointcloud_to_laserscan_node', # composable node
+        executable='pointcloud_to_laserscan_node', # this is a composable node
         name='pointcloud_to_laserscan',
         parameters=[{
             'target_frame': 'lidar_link_1',
             'transform_tolerance': 0.01,
             'min_height': 0.0,
             'max_height': 1.0,
-            'angle_min': -1.5708,  # -M_PI/2
-            'angle_max': 1.5708,  # M_PI/2
-            'angle_increment': 0.0087,  # M_PI/360.0
+            'angle_min': -3.14,  # -M_PI
+            'angle_max': 3.14,  # M_PI
+            'angle_increment': 0.017444444, # 0.0087,  # 2*M_PI/360.0
             'scan_time': 0.3333,
-            'range_min': 0.45,
-            'range_max': 4.0,
+            'range_min': 0.4,
+            'range_max': 8.0,
             'use_inf': True,
             'inf_epsilon': 1.0
         }],
+        remappings=[('scan', 'pc_scan')]
         
     )
 
