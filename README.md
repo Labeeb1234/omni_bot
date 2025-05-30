@@ -239,7 +239,9 @@
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
 
   - senario-1 (static obstacles mapped)
-
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/5733862a-8048-414d-95fe-3706647ad815" alt="static-mapped-obstacle-avoidance">
+    </div>
 
   - senario-2 (unmmaped static obstacles)
     <div align="center">
