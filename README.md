@@ -234,7 +234,7 @@
     
   
 
-- **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
+- **Dynamic Obstacle avoidance w/ MPPI local controller/planner** (updated simulations)
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
 
   - senario-1 (static obstacles mapped)
