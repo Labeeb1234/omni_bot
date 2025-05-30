@@ -10,7 +10,12 @@ from isaacsim.replicator.behavior.utils.behavior_utils import ( # type: ignore
 from omni.kit.scripting import BehaviorScript #type:ignore
 from isaacsim.core.prims import Articulation #type:ignore
 from pxr import Sdf, Usd #type:ignore
+import numpy as np
+'''
 
+Custom Behaviour Script/node to control the routine behaviour a forklift articulation
+
+'''
 
 class ForkLiftMotion(BehaviorScript):
     BEHAVIOUR_NS = "ForkLift_Motion"
@@ -18,7 +23,7 @@ class ForkLiftMotion(BehaviorScript):
         {
             "attr_name": "interval",
             "attr_type": Sdf.ValueTypeNames.UInt,
-            "default_value": 10,
+            "default_value": 1,
             "doc": "Interval Rate for Forklift logic update function"
         },
         {
@@ -31,7 +36,7 @@ class ForkLiftMotion(BehaviorScript):
 
     def on_init(self):
         carb.log_info(f"on_init()->{self.prim}")
-        self.interval = 10
+        self.interval = 1
         self.forklift_vel = 0.1
         self.update_counter = 0
         self._articulation_prim_initialized = False
@@ -65,11 +70,24 @@ class ForkLiftMotion(BehaviorScript):
         self.update_counter += 1
         if self.update_counter >= self.interval:
             carb.log_info(f"{type(self).__name__}.on_update({current_time}, {delta_time})->{self.prim_path}")
+            # print(f"forklift joint names: {self.forklift_art.joint_names}") 
+            j1_idx = self.forklift_art.get_joint_index('back_wheel_swivel')
+            j2_idx = self.forklift_art.get_joint_index('back_wheel_drive')
+            print(f"back swivel vel: {np.squeeze(self.forklift_art.get_joint_velocities(), axis=0)[j1_idx]}\n")
+            print(f"back drive vel: {np.squeeze(self.forklift_art.get_joint_velocities(), axis=0)[j2_idx]}\n")
+
+            self.forklift_art.set_joint_velocity_targets(
+                velocities=np.array([0.0, 0.0]),
+                joint_indices=np.array([j1_idx, j2_idx])
+            )
+
             self.update_counter = 0
     
     def _setup(self):
         self.interval = self._get_exposed_variable(self.VARIABLES_TO_EXPOSE[0]['attr_name'])
         self.forklift_vel = self._get_exposed_variable(self.VARIABLES_TO_EXPOSE[1]['attr_name'])
+        print(f"[INFO]: Setting Logic Update Interval as: {self.interval}")
+        print(f"[INFO]: Setting Forklift Body Velocity as: {self.forklift_vel:.2f}")
 
         if not self._articulation_prim_initialized:
             prim_path = self.prim.GetPath().pathString
@@ -87,7 +105,7 @@ class ForkLiftMotion(BehaviorScript):
         self._articulation_prim_initialized = False
         self.forklift_art = None
         self.update_counter = 0
-        self.interval = 10
+        self.interval = 1
 
     def _get_exposed_variable(self, attr_name):
         full_attr_name = f"{EXPOSED_ATTR_NS}:{self.BEHAVIOUR_NS}:{attr_name}"
