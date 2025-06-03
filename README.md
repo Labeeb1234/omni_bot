@@ -231,8 +231,9 @@
   - ```bash
       ros2 launch omni_bot_navigation nav_bringup.launch.py (go nuts after)
     ```
-    
-  
+
+
+- **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
 
 - **Dynamic Obstacle avoidance w/ MPPI local controller/planner** (updated simulations)
   
@@ -253,9 +254,6 @@ The environment used for this simulation was a modified version of a small wareh
 
 
 
-- **Testing something different here (LQR-Frenet Frame based Local Planner)**
-
-
 
 
 ## ========================================================================================================
@@ -267,5 +265,5 @@ The environment used for this simulation was a modified version of a small wareh
   <img src="https://github.com/user-attachments/assets/a90cd675-712b-48ba-964b-8ab58b674637" alt="multi-bot-feature-test-demo">
 </div>
 
-- The module is still subject to changes and is a bit unpolished 
+- The module is still subject to changes and is a bit unpolished
 
