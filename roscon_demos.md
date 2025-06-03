@@ -1,6 +1,24 @@
-- **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
+- **Nav2 Testing w/ DWB-NAVFN Planner Combination (Tuned for Omni-Motion Model)**
 
-- **Dynamic Obstacle avoidance w/ MPPI local controller/planner** (updated simulations)
+  - Bot X-Motion (linear_motion)
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/3b899b21-fb46-421e-9533-e56723b22f72" alt="linear_motion">
+    </div>
+    
+  - Bot Y-Motion (strafe_motion)
+    <div align="center">
+     <img src="https://github.com/user-attachments/assets/b8ec864e-862b-4ee9-a32f-b8e7ba41c581" alt="strafe_motion">
+    </div>
+
+  - Bot Holonomic-Motion
+    <div align="center">
+     <img src="https://github.com/user-attachments/assets/5ad2a2fa-aca8-4d88-adca-c5297ee96e08" alt="holonomic_motion">
+    </div>
+
+
+- **Dynamic Obstacle avoidance w/ DWB local controller/planner** 
+
+- **Dynamic Obstacle avoidance w/ MPPI local controller/planner**
   
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
 
