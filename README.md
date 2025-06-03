@@ -238,7 +238,7 @@
   
   - senario-2 (unmmaped static obstacles)
     <div align="center">
-      <img src="https://github.com/user-attachments/assets/c4ab8f33-7f68-4d02-abb8-d038a7ad040c" alt="static-unmapped-obstacle-avoidance">
+      <img src="https://github.com/user-attachments/assets/df0c437a-9b4a-49e0-9f58-c88d599f1fe6" alt="static-unmapped-obstacle-avoidance">
     </div>
     
 - **Dynamic Obstacle avoidance w/ MPPI local controller/planner** (updated simulations)
