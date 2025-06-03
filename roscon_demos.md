@@ -18,6 +18,11 @@
 
 - **Dynamic Obstacle avoidance w/ DWB local controller/planner** 
 
+  - senario-2 (unmmaped static obstacles)
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/4b4f5d3b-196a-41d4-be91-e83bfde70276" alt="static-unmapped-obstacle-avoidance">
+    </div>
+    
 - **Dynamic Obstacle avoidance w/ MPPI local controller/planner**
   
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
