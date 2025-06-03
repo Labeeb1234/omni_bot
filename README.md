@@ -250,6 +250,10 @@ The environment used for this simulation was a modified version of a small wareh
     </div>
     
   - senario-3 (just one unmapped dynamic obstacle)
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/20906bfc-b096-43c9-b954-f04deda253bc" alt="dynamic-unmapped-obstacle-avoidance">
+    </div>
+
   - senario-4 (more unmapped moving obstacles)
 
 
