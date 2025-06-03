@@ -235,6 +235,11 @@
 
 
 - **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
+
+  - senario-1 (static obstacles mapped)
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/c224c8a2-0019-4707-a752-fd6245982639" alt="static-mapped-obstacle-avoidance">
+    </div>
   
   - senario-2 (unmmaped static obstacles)
     <div align="center">
