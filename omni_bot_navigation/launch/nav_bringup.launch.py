@@ -124,6 +124,13 @@ def generate_launch_description():
        parameters=[os.path.join(nav2_dir, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}] 
     )
 
+    # dynamic reconfiguration tool
+    rqt_reconfigure = Node(
+        package='rqt_reconfigure',
+        executable='rqt_reconfigure',
+        name='rqt_reconfigure',
+        output='screen',
+    )
 
     bringup_cmd_group = GroupAction([
         PushRosNamespace(
@@ -189,6 +196,7 @@ def generate_launch_description():
     ld.add_action(start_rviz_cmd)
     ld.add_action(bringup_cmd_group)
     ld.add_action(robot_localization_node)
+    ld.add_action(rqt_reconfigure)
 
     # # uncomment this for SLAM-operation (ceres-solver: SLAM optimizer algo)
     ld.add_action(declare_mapper_online_async_param_cmd)
