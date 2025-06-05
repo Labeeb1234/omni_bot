@@ -21,8 +21,9 @@
   - PS: The commands are executed one after the other just like a standard program execution in both cases.
 - Now after all the setup is done one issue that can happen is that the loaded people assets are just meshes with a skeleton (which gives a more human behaviour to its motion) so no physics based collision will be present for this all we have to do is go to the skelroot of the Character (anyone) right click on that prim and add rigid body attribute to to the prim (or you can add rigid body with collider presets your wish), then go to the properties tab of the skelroot and go to the rigid body section and enable kinematics, rigid body is already enabled anyways after adding rigid body. The required sections are marked below in the pic for reference.
       <div>
-        <img src="https://github.com/user-attachments/assets/924a369a-db91-410e-b081-79abee9d0c76" alt="reference markers"/>
+        <img src="https://github.com/user-attachments/assets/63e52a18-6bf8-4fbe-b92d-cbbf70437721" alt="reference markers for adding rigid body to skelroot"/>
       </div>
+
 - Finally things will look like this (if the collider view is enabled)
       <div>
         <img src="https://github.com/user-attachments/assets/35a2681a-3a38-4b1a-9be8-2e57b7d18b91" alt="setup"/>
