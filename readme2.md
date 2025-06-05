@@ -27,7 +27,7 @@
       <div>
         <img src="https://github.com/user-attachments/assets/35a2681a-3a38-4b1a-9be8-2e57b7d18b91" alt="setup"/>
       </div>
-  - Here in the gif above you can **see the Lidar projection points around the legs** of the moving character asset, this won't happen in the default setting of the character asset as they are just meshes without any physics based attributes (this need to be manually added by us {as of 2025}).
+  - Here in the gif above you can **see the Lidar projection points around the legs** of the moving character asset, this won't happen in the default setting of the character asset as they are just meshes without any physics based attributes (this need to be manually by us {as of 2025}).
 
 
 
