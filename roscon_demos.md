@@ -54,3 +54,4 @@ The environment used for this simulation was a modified version of a small wareh
     </div>
   
   - senario-4 (more unmapped moving obstacles)
+    [download video here](https://github.com/Labeeb1234/omni_bot/blob/main/scenario4_navfn-mppi.mp4)
