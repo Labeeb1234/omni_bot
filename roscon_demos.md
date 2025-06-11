@@ -28,6 +28,12 @@
       <img src="https://github.com/user-attachments/assets/72001434-cc26-4cca-98ef-2cbe94683fb9" alt="static-unmapped-obstacle-avoidance">
     </div>
     
+  - senario-3 (just one unmapped dynamic obstacle)
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/19e357c0-7bcd-4ebc-b9bc-2f484725d5b2" alt="dynamic-unmapped-obstacle-avoidance">
+    </div>
+
+    
 - **Dynamic Obstacle avoidance w/ MPPI local controller/planner**
   
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
@@ -46,4 +52,5 @@ The environment used for this simulation was a modified version of a small wareh
     <div align="center">
       <img src="https://github.com/user-attachments/assets/228f3e31-4b19-4eb5-91ea-0e48571d4d78" alt="dynamic-unmapped-obstacle-avoidance">
     </div>
+  
   - senario-4 (more unmapped moving obstacles)
