@@ -236,17 +236,17 @@
 
 - **Dynamic Obstacle avoidance w/ DWB local controller/planner** (updated simulations)
 
-  - senario-1 (static obstacles mapped)
+  - scenario-1 (static obstacles mapped)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/c224c8a2-0019-4707-a752-fd6245982639" alt="static-mapped-obstacle-avoidance">
     </div>
   
-  - senario-2 (unmmaped static obstacles)
+  - scenario-2 (unmmaped static obstacles)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/df0c437a-9b4a-49e0-9f58-c88d599f1fe6" alt="static-unmapped-obstacle-avoidance">
     </div>
 
-  - senario-3 (just one unmapped dynamic obstacle)
+  - scenario-3 (just one unmapped dynamic obstacle)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/97cff31f-09e4-4d5a-9a03-eecee51ca0b9" alt="dynamic-unmapped-obstacle-avoidance">
     </div>
@@ -256,22 +256,23 @@
   
 The environment used for this simulation was a modified version of a small warehouse asset preset in the NVIDIA Omniverse Database. Few changes were made to the environment to make it suitable for our purpose. (pic given below)
 
-  - senario-1 (static obstacles mapped)
+  - scenario-1 (static obstacles mapped)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/5733862a-8048-414d-95fe-3706647ad815" alt="static-mapped-obstacle-avoidance">
     </div>
 
-  - senario-2 (unmmaped static obstacles)
+  - scenario-2 (unmmaped static obstacles)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/6a84f7a5-392d-4060-a78c-12cfd7f2044c" alt="static-unmapped-obstacle-avoidance">
     </div>
     
-  - senario-3 (just one unmapped dynamic obstacle)
+  - scenario-3 (just one unmapped dynamic obstacle)
     <div align="center">
       <img src="https://github.com/user-attachments/assets/20906bfc-b096-43c9-b954-f04deda253bc" alt="dynamic-unmapped-obstacle-avoidance">
     </div>
 
-  - senario-4 (more unmapped moving obstacles)
+  - scenario-4 (more unmapped moving obstacles)
+    [download this muthafuka]()
 
 
 
