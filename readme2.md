@@ -30,6 +30,23 @@
       </div>
   - Here in the gif above you can **see the Lidar projection points around the legs** of the moving character asset, this won't happen in the default setting of the character asset as they are just meshes without any physics based attributes (this need to be manually by us {as of 2025}).
 
+- Note To Self: CMD for character_01 in the omni bot single world USDs --> for running tests
+```txt
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+Character_01 GoTo -4.0 9.3 0.0 _
+Character_01 GoTo -6.8 9.3 0.0 _
+```
 
 
 
