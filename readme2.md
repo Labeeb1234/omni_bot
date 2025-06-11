@@ -48,6 +48,5 @@ Character_01 GoTo -4.0 9.3 0.0 _
 Character_01 GoTo -6.8 9.3 0.0 _
 ```
 
-
-
 ## Other Dynamic Obstalces (IsaacSim)
+- The other dynamic obstacle in the environment is an unmapped forklift moving back and forth. This was achieved using behaviour script modules attached to the forklift prim(articulation prim).
