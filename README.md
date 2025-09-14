@@ -275,7 +275,13 @@ The environment used for this simulation was a modified version of a small wareh
     
     [download this muthafuka](https://github.com/Labeeb1234/omni_bot/blob/main/scenario4_navfn-mppi.mp4)
 
+## Custom Testing of NAV2 pkg
 
+- For the experiments below I am sticking to navfn-mppi combination of planners for better bot planning response and obstacle avoidance
+  
+- Voxel Layer Visualization (not tested yet)
+- Route Server Test (new feature of nav2)
+- Custom Behaviour Tree Testing
 
 
 
