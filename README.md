@@ -280,7 +280,7 @@ The environment used for this simulation was a modified version of a small wareh
 - For the experiments below I am sticking to navfn-mppi combination of planners for better bot planning response and obstacle avoidance
   
 - Voxel Layer Visualization (not tested yet)
-  - To enable visualization of voxel follow this [doc](https://github.com/ros-navigation/navigation2/tree/main/nav2_costmap_2d)
+  - To enable visualization of voxel follow this [doc]([https://github.com/ros-navigation/navigation2/tree/main/nav2_costmap_2d](https://github.com/ros-navigation/navigation2/tree/main/nav2_costmap_2d#to-visualize-the-voxels-in-rviz))
 - Add Denoising layer to the costmaps
 - Route Server Test (new feature of nav2)
 - Custom Behaviour Tree Testing
