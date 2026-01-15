@@ -12,7 +12,7 @@
   <img src="https://github.com/user-attachments/assets/2b375081-0e96-4112-92a6-ad9d69afaf21" alt="OmniBot IsaacSim">
 </div>
 
-**Note**: Some thing that I noticed is that the origins of visuals, colliders and inertia has an offset while imported to URDF from the software which needs to be properly looked at before exporting to URDF otherwise the enitre positioning of the bot components will have to be reworked in NVIDIA IsaacSim
+**Note**: Some thing that I noticed was that the origins of visuals, colliders and inertia has an offset while imported to URDF from the software which needs to be properly looked at before exporting to URDF otherwise the enitre positioning of the bot components will have to be reworked in NVIDIA IsaacSim
 
 ## Lower Kinematics Controller (custom)
 
